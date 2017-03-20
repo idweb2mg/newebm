@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Lun 20 Mars 2017 à 17:02
+-- Généré le :  Lun 20 Mars 2017 à 18:21
 -- Version du serveur :  5.7.14
 -- Version de PHP :  7.0.10
 
@@ -28,9 +28,9 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `fractivitescles` (
   `ID` int(10) UNSIGNED NOT NULL,
-  `TYPECANAUX` enum('1','2','3') COLLATE utf8_unicode_ci NOT NULL,
-  `CONTENU` text COLLATE utf8_unicode_ci NOT NULL,
-  `TITRE` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `TYPEACTIVITESCLES` enum('1','2','3') COLLATE utf8_unicode_ci NOT NULL,
+  `CONTENUACTIVITESCLES` text COLLATE utf8_unicode_ci NOT NULL,
+  `TITREACTIVITESCLES` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `ID_HELP` int(10) UNSIGNED NOT NULL,
   `ID_MATRICE` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -49,8 +49,8 @@ CREATE TABLE `frcanaux` (
   `ACHAT` text COLLATE utf8_unicode_ci NOT NULL,
   `PRESTATION` text COLLATE utf8_unicode_ci NOT NULL,
   `VENTE` text COLLATE utf8_unicode_ci NOT NULL,
-  `CONTENU` text COLLATE utf8_unicode_ci NOT NULL,
-  `TITRE` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `CONTENUCANAUX` text COLLATE utf8_unicode_ci NOT NULL,
+  `TITRECANAUX` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `ID_HELP` int(10) UNSIGNED NOT NULL,
   `ID_MATRICE` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -101,9 +101,9 @@ CREATE TABLE `frmatrice` (
 
 CREATE TABLE `frpartenariat` (
   `ID` int(10) UNSIGNED NOT NULL,
-  `TYPECANAUX` enum('1','2','3') COLLATE utf8_unicode_ci NOT NULL,
-  `CONTENU` text COLLATE utf8_unicode_ci NOT NULL,
-  `TITRE` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `TYPEPARTENARIAT` enum('1','2','3') COLLATE utf8_unicode_ci NOT NULL,
+  `CONTENUPARTENARIAT` text COLLATE utf8_unicode_ci NOT NULL,
+  `TITREPARTENARIAT` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `ID_HELP` int(10) UNSIGNED NOT NULL,
   `ID_MATRICE` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -133,8 +133,8 @@ CREATE TABLE `frprojet` (
 CREATE TABLE `frpropositiondevaleur` (
   `ID` int(10) UNSIGNED NOT NULL,
   `TYPEPROPOSITIONDEVALEUR` enum('1','2','3','4','5','6','7','8','9','10','11') COLLATE utf8_unicode_ci NOT NULL,
-  `CONTENU` text COLLATE utf8_unicode_ci NOT NULL,
-  `TITRE` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `CONTENUPROPOSITIONSDEVALEUR` text COLLATE utf8_unicode_ci NOT NULL,
+  `TITREPROPOSITIONSDEVALEUR` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `ID_HELP` int(10) UNSIGNED NOT NULL,
   `ID_MATRICE` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -148,8 +148,8 @@ CREATE TABLE `frpropositiondevaleur` (
 CREATE TABLE `frrelationclient` (
   `ID` int(10) UNSIGNED NOT NULL,
   `TYPECANAUX` enum('1','2','3','4','5','6') COLLATE utf8_unicode_ci NOT NULL,
-  `CONTENU` text COLLATE utf8_unicode_ci NOT NULL,
-  `TITRE` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `CONTENURELATIONCLIENT` text COLLATE utf8_unicode_ci NOT NULL,
+  `TITRERELATIONCLIENT` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `ID_HELP` int(10) UNSIGNED NOT NULL,
   `ID_MATRICE` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -166,8 +166,8 @@ CREATE TABLE `frressourcescles` (
   `TYPEINTELLECTUELLES` text COLLATE utf8_unicode_ci NOT NULL,
   `TYPEHUMAINES` text COLLATE utf8_unicode_ci NOT NULL,
   `TYPEFINANCIERES` text COLLATE utf8_unicode_ci NOT NULL,
-  `CONTENU` text COLLATE utf8_unicode_ci NOT NULL,
-  `TITRE` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `CONTENURESSOURCESCLES` text COLLATE utf8_unicode_ci NOT NULL,
+  `TITRERESSOURCESCLES` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `ID_HELP` int(10) UNSIGNED NOT NULL,
   `ID_MATRICE` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -180,9 +180,9 @@ CREATE TABLE `frressourcescles` (
 
 CREATE TABLE `frsegmentsclients` (
   `ID` int(10) UNSIGNED NOT NULL,
-  `TYPE` enum('1','2','3','4','5') COLLATE utf8_unicode_ci NOT NULL,
-  `CONTENU` text COLLATE utf8_unicode_ci NOT NULL,
-  `TITRE` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `TYPESEGMENTSCLIENTS` enum('1','2','3','4','5') COLLATE utf8_unicode_ci NOT NULL,
+  `CONTENUSEGMENTSCLIENTS` text COLLATE utf8_unicode_ci NOT NULL,
+  `TITRESEGMENTSCLIENTS` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `ID_HELP` int(10) UNSIGNED NOT NULL,
   `ID_MATRICE` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -198,8 +198,8 @@ CREATE TABLE `frsourcesderevenus` (
   `TYPESOURCESDEREVENU` enum('1','2','3','4','5','6','7') COLLATE utf8_unicode_ci NOT NULL,
   `PRIXFIXE` enum('1','2','3','4') COLLATE utf8_unicode_ci NOT NULL,
   `PRIXVARIABLE` enum('1','2','3','4') COLLATE utf8_unicode_ci NOT NULL,
-  `CONTENU` text COLLATE utf8_unicode_ci NOT NULL,
-  `TITRE` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `CONTENUSOURCESDEREVENUS` text COLLATE utf8_unicode_ci NOT NULL,
+  `TITRESOURCESDEREVENUS` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `ID_HELP` int(10) UNSIGNED NOT NULL,
   `ID_MATRICE` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -212,12 +212,13 @@ CREATE TABLE `frsourcesderevenus` (
 
 CREATE TABLE `frstructuredecouts` (
   `ID` int(10) UNSIGNED NOT NULL,
-  `TYPECANAUX` enum('1','2') COLLATE utf8_unicode_ci NOT NULL,
+  `TYPESTRUCTUREDECOUTS` enum('1','2') COLLATE utf8_unicode_ci NOT NULL,
   `COUTSFIXES` text COLLATE utf8_unicode_ci NOT NULL,
   `COUTSVARIABLES` text COLLATE utf8_unicode_ci NOT NULL,
   `ECONOMIESDECHELLES` text COLLATE utf8_unicode_ci NOT NULL,
   `ECONOMIESENVERGURE` text COLLATE utf8_unicode_ci NOT NULL,
-  `TITRE` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `CONTENUSTRUCTUREDECOUTS` text COLLATE utf8_unicode_ci NOT NULL,
+  `TITRESTRUCTUREDECOUTS` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `ID_HELP` int(10) UNSIGNED NOT NULL,
   `ID_MATRICE` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;

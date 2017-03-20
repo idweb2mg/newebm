@@ -16,9 +16,9 @@ class CreateFRACTIVITESCLESTable extends Migration
       Schema::create('FRACTIVITESCLES', function(Blueprint $table){
          $table->engine = 'InnoDB';
        $table->increments('ID');
-       $table->enum('TYPECANAUX', array('1','2','3'));
-       $table->text('CONTENU');
-       $table->string('TITRE',30);
+       $table->enum('TYPEACTIVITESCLES', array('1','2','3'));
+       $table->text('CONTENUACTIVITESCLES');
+       $table->string('TITREACTIVITESCLES',30);
        $table->integer('ID_HELP')->unsigned();
        $table->integer('ID_MATRICE')->unsigned();
        $table->foreign('ID_HELP')->references('ID')->on('FRHELP');

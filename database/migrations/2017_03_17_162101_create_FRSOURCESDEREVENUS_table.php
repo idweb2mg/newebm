@@ -19,8 +19,8 @@ class CreateFRSOURCESDEREVENUSTable extends Migration
        $table->enum('TYPESOURCESDEREVENU', array('1','2','3','4','5','6','7'));
        $table->enum('PRIXFIXE', array('1','2','3','4'));
        $table->enum('PRIXVARIABLE', array('1','2','3','4'));
-       $table->text('CONTENU');
-       $table->string('TITRE',30);
+       $table->text('CONTENUSOURCESDEREVENUS');
+       $table->string('TITRESOURCESDEREVENUS',30);
        $table->integer('ID_HELP')->unsigned();
        $table->integer('ID_MATRICE')->unsigned();
        $table->foreign('ID_HELP')->references('ID')->on('FRHELP');

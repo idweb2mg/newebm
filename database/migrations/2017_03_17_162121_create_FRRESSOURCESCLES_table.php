@@ -20,8 +20,8 @@ class CreateFRRESSOURCESCLESTable extends Migration
        $table->text('TYPEINTELLECTUELLES');
        $table->text('TYPEHUMAINES');
        $table->text('TYPEFINANCIERES');
-       $table->text('CONTENU');
-       $table->string('TITRE',30);
+       $table->text('CONTENURESSOURCESCLES');
+       $table->string('TITRERESSOURCESCLES',30);
        $table->integer('ID_HELP')->unsigned();
        $table->integer('ID_MATRICE')->unsigned();
        $table->foreign('ID_HELP')->references('ID')->on('FRHELP');

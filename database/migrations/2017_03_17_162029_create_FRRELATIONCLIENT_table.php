@@ -17,8 +17,8 @@ class CreateFRRELATIONCLIENTTable extends Migration
        $table->engine = 'InnoDB';
        $table->increments('ID');
        $table->enum('TYPECANAUX', array('1','2','3','4','5','6'));
-       $table->text('CONTENU');
-       $table->string('TITRE',30);
+       $table->text('CONTENURELATIONCLIENT');
+       $table->string('TITRERELATIONCLIENT',30);
        $table->integer('ID_HELP')->unsigned();
        $table->integer('ID_MATRICE')->unsigned();
        $table->foreign('ID_HELP')->references('ID')->on('FRHELP');

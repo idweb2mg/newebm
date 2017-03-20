@@ -21,8 +21,8 @@ class CreateFRCANAUXTable extends Migration
       $table->text('ACHAT');
       $table->text('PRESTATION');
       $table->text('VENTE');
-      $table->text('CONTENU');
-      $table->string('TITRE',30);
+      $table->text('CONTENUCANAUX');
+      $table->string('TITRECANAUX',30);
       $table->integer('ID_HELP')->unsigned();
       $table->foreign('ID_HELP')->references('ID')->on('FRHELP');
       $table->integer('ID_MATRICE')->unsigned();
