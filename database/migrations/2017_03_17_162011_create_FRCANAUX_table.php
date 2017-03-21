@@ -24,9 +24,9 @@ class CreateFRCANAUXTable extends Migration
       $table->text('CONTENUCANAUX');
       $table->string('TITRECANAUX',30);
       $table->integer('ID_HELP')->unsigned();
-      $table->foreign('ID_HELP')->references('ID_CANAUX')->on('FRHELP');
+      $table->foreign('ID_HELP')->references('ID_HELP')->on('FRHELP');
       $table->integer('ID_MATRICE')->unsigned();
-      $table->foreign('ID_MATRICE')->references('ID_CANAUX')->on('FRMATRICE');
+      $table->foreign('ID_MATRICE')->references('ID_MATRICE')->on('FRMATRICE');
     });
         //
     }

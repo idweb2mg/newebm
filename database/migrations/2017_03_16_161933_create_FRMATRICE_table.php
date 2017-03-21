@@ -19,8 +19,8 @@ class CreateFRMATRICETable extends Migration
             $table->string('TITREMATRICE', 30);
             $table->integer('ID_PROJET')->unsigned();
             $table->integer('ID_HELP')->unsigned();
-            $table->foreign('ID_PROJET')->references('ID_MATRICE')->on('FRPROJET');
-            $table->foreign('ID_HELP')->references('ID_MATRICE')->on('FRHELP');
+            $table->foreign('ID_PROJET')->references('ID_PROJET')->on('FRPROJET');
+            $table->foreign('ID_HELP')->references('ID_HELP')->on('FRHELP');
             $table->timestamp('DATECREATION');
             $table->timestamp('DATEENREGISTREMENT');
         });
