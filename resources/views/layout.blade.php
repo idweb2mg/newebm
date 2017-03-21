@@ -23,7 +23,6 @@ ebm ~ layout.blade.php
 
         @yield('head')
 
-        {!! HTML::style('css/front.css') !!}
 
     </head>
 
@@ -46,52 +45,7 @@ ebm ~ layout.blade.php
                     <a class="navbar-brand" href="index.html">{{ trans('front/site.title') }}</a>
                 </div>
                 <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav">
-                        <li {!! classActivePath('/') !!}>
-                            {!! link_to('/', trans('front/site.home')) !!}
-                        </li>
-                        @if(session('statut') == 'visitor' || session('statut') == 'mem')
-                            <li {!! classActivePath('contact/create') !!}>
-                                {!! link_to('contact/create', trans('front/site.contact')) !!}
-                            </li>
-                        @endif
-                        <li {!! classActiveSegment(1, ['articles', 'blog']) !!}>
-                            {!! link_to('articles', trans('front/site.blog')) !!}
-                        </li>
-                        @if(Request::is('auth/register'))
-                            <li class="active">
-                                {!! link_to('auth/register', trans('front/site.register')) !!}
-                            </li>
-                        @elseif(Request::is('password/email'))
-                            <li class="active">
-                                {!! link_to('password/email', trans('front/site.forget-password')) !!}
-                            </li>
-                        @else
-                            @if(session('statut') == 'visitor')
-                                <li {!! classActivePath('login') !!}>
-                                    {!! link_to('login', trans('front/site.connection')) !!}
-                                </li>
-                            @else
-                                @if(session('statut') == 'admin')
-                                    <li>
-                                        {!! link_to_route('admin', trans('front/site.administration')) !!}
-                                    </li>
-                                @elseif(session('statut') == 'mod')
-                                    <li>
-                                        {!! link_to('blog', trans('front/site.redaction')) !!}
-                                    </li>
-                                @endif
-                                <li>
-                                    {!! link_to('/logout', trans('front/site.logout'), ['id' => "logout"]) !!}
-                                    {!! Form::open(['url' => '/logout', 'id' => 'logout-form']) !!}{!! Form::close() !!}
-                                </li>
-                            @endif
-                        @endif
-                        <li class="dropdown">
-                            <a data-toggle="dropdown" class="dropdown-toggle" href="#"><img width="32" height="32" alt="{{ session('locale') }}"  src="{!! asset('img/' . session('locale') . '-flag.png') !!}" />&nbsp; <b class="caret"></b></a>
 
-                        </li>
-                    </ul>
                 </div>
             </div>
         </nav>
@@ -113,8 +67,6 @@ ebm ~ layout.blade.php
         <p class="text-center"><small>Copyright &copy; e-BM</small></p>
     </footer>
 
-    {!! HTML::script('https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js') !!}
-    {!! HTML::script('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js') !!}
 
     <script>
         $.ajaxSetup({
