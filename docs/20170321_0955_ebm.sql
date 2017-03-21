@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Lun 20 Mars 2017 à 18:21
+-- Généré le :  Mar 21 Mars 2017 à 08:57
 -- Version du serveur :  5.7.14
 -- Version de PHP :  7.0.10
 
@@ -27,7 +27,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `fractivitescles` (
-  `ID` int(10) UNSIGNED NOT NULL,
+  `ID_ACTIVITESCLES` int(10) UNSIGNED NOT NULL,
   `TYPEACTIVITESCLES` enum('1','2','3') COLLATE utf8_unicode_ci NOT NULL,
   `CONTENUACTIVITESCLES` text COLLATE utf8_unicode_ci NOT NULL,
   `TITREACTIVITESCLES` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
@@ -42,7 +42,7 @@ CREATE TABLE `fractivitescles` (
 --
 
 CREATE TABLE `frcanaux` (
-  `ID` int(10) UNSIGNED NOT NULL,
+  `ID_CANAUX` int(10) UNSIGNED NOT NULL,
   `TYPECANAUX` enum('1','2','3','4','5') COLLATE utf8_unicode_ci NOT NULL,
   `RECONNAISSANCE` text COLLATE utf8_unicode_ci NOT NULL,
   `EVALUATION` text COLLATE utf8_unicode_ci NOT NULL,
@@ -62,7 +62,7 @@ CREATE TABLE `frcanaux` (
 --
 
 CREATE TABLE `frhelp` (
-  `ID` int(10) UNSIGNED NOT NULL,
+  `ID_HELP` int(10) UNSIGNED NOT NULL,
   `LIBELLEHELP` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `CONTENU` text COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -74,7 +74,7 @@ CREATE TABLE `frhelp` (
 --
 
 CREATE TABLE `frlangue` (
-  `ID` int(10) UNSIGNED NOT NULL,
+  `ID_LANGUE` int(10) UNSIGNED NOT NULL,
   `REFERENCELANGUE` varchar(30) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -85,7 +85,7 @@ CREATE TABLE `frlangue` (
 --
 
 CREATE TABLE `frmatrice` (
-  `ID` int(10) UNSIGNED NOT NULL,
+  `ID_MATRICE` int(10) UNSIGNED NOT NULL,
   `TITREMATRICE` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `ID_PROJET` int(10) UNSIGNED NOT NULL,
   `ID_HELP` int(10) UNSIGNED NOT NULL,
@@ -100,7 +100,7 @@ CREATE TABLE `frmatrice` (
 --
 
 CREATE TABLE `frpartenariat` (
-  `ID` int(10) UNSIGNED NOT NULL,
+  `ID_PARTENARIAT` int(10) UNSIGNED NOT NULL,
   `TYPEPARTENARIAT` enum('1','2','3') COLLATE utf8_unicode_ci NOT NULL,
   `CONTENUPARTENARIAT` text COLLATE utf8_unicode_ci NOT NULL,
   `TITREPARTENARIAT` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
@@ -115,7 +115,7 @@ CREATE TABLE `frpartenariat` (
 --
 
 CREATE TABLE `frprojet` (
-  `ID` int(10) UNSIGNED NOT NULL,
+  `ID_PROJET` int(10) UNSIGNED NOT NULL,
   `LIBELLEPROJET` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `TYPEPROJET` enum('1','2','3','4') COLLATE utf8_unicode_ci NOT NULL,
   `ID_LANGUE` int(10) UNSIGNED NOT NULL,
@@ -131,7 +131,7 @@ CREATE TABLE `frprojet` (
 --
 
 CREATE TABLE `frpropositiondevaleur` (
-  `ID` int(10) UNSIGNED NOT NULL,
+  `ID_PROPOSITIONDEVALEUR` int(10) UNSIGNED NOT NULL,
   `TYPEPROPOSITIONDEVALEUR` enum('1','2','3','4','5','6','7','8','9','10','11') COLLATE utf8_unicode_ci NOT NULL,
   `CONTENUPROPOSITIONSDEVALEUR` text COLLATE utf8_unicode_ci NOT NULL,
   `TITREPROPOSITIONSDEVALEUR` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
@@ -146,7 +146,7 @@ CREATE TABLE `frpropositiondevaleur` (
 --
 
 CREATE TABLE `frrelationclient` (
-  `ID` int(10) UNSIGNED NOT NULL,
+  `ID_RELATIONCLIENT` int(10) UNSIGNED NOT NULL,
   `TYPECANAUX` enum('1','2','3','4','5','6') COLLATE utf8_unicode_ci NOT NULL,
   `CONTENURELATIONCLIENT` text COLLATE utf8_unicode_ci NOT NULL,
   `TITRERELATIONCLIENT` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
@@ -161,7 +161,7 @@ CREATE TABLE `frrelationclient` (
 --
 
 CREATE TABLE `frressourcescles` (
-  `ID` int(10) UNSIGNED NOT NULL,
+  `ID_RESSOURCESCLES` int(10) UNSIGNED NOT NULL,
   `TYPEPHYSIQUES` text COLLATE utf8_unicode_ci NOT NULL,
   `TYPEINTELLECTUELLES` text COLLATE utf8_unicode_ci NOT NULL,
   `TYPEHUMAINES` text COLLATE utf8_unicode_ci NOT NULL,
@@ -179,7 +179,7 @@ CREATE TABLE `frressourcescles` (
 --
 
 CREATE TABLE `frsegmentsclients` (
-  `ID` int(10) UNSIGNED NOT NULL,
+  `ID_SEGMENTSCLIENTS` int(10) UNSIGNED NOT NULL,
   `TYPESEGMENTSCLIENTS` enum('1','2','3','4','5') COLLATE utf8_unicode_ci NOT NULL,
   `CONTENUSEGMENTSCLIENTS` text COLLATE utf8_unicode_ci NOT NULL,
   `TITRESEGMENTSCLIENTS` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
@@ -194,7 +194,7 @@ CREATE TABLE `frsegmentsclients` (
 --
 
 CREATE TABLE `frsourcesderevenus` (
-  `ID` int(10) UNSIGNED NOT NULL,
+  `ID_SOURCESDEREVENUS` int(10) UNSIGNED NOT NULL,
   `TYPESOURCESDEREVENU` enum('1','2','3','4','5','6','7') COLLATE utf8_unicode_ci NOT NULL,
   `PRIXFIXE` enum('1','2','3','4') COLLATE utf8_unicode_ci NOT NULL,
   `PRIXVARIABLE` enum('1','2','3','4') COLLATE utf8_unicode_ci NOT NULL,
@@ -211,7 +211,7 @@ CREATE TABLE `frsourcesderevenus` (
 --
 
 CREATE TABLE `frstructuredecouts` (
-  `ID` int(10) UNSIGNED NOT NULL,
+  `ID_STRUCTUREDECOUTS` int(10) UNSIGNED NOT NULL,
   `TYPESTRUCTUREDECOUTS` enum('1','2') COLLATE utf8_unicode_ci NOT NULL,
   `COUTSFIXES` text COLLATE utf8_unicode_ci NOT NULL,
   `COUTSVARIABLES` text COLLATE utf8_unicode_ci NOT NULL,
@@ -276,7 +276,7 @@ CREATE TABLE `password_resets` (
 --
 
 CREATE TABLE `roles` (
-  `ID` int(10) UNSIGNED NOT NULL,
+  `ID_ROLES` int(10) UNSIGNED NOT NULL,
   `TITLE` enum('1','2','3') COLLATE utf8_unicode_ci NOT NULL,
   `SLUG` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `DATECREATION` timestamp NOT NULL,
@@ -296,8 +296,7 @@ CREATE TABLE `users` (
   `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  `ID_ROLES` int(10) UNSIGNED NOT NULL
+  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -308,7 +307,7 @@ CREATE TABLE `users` (
 -- Index pour la table `fractivitescles`
 --
 ALTER TABLE `fractivitescles`
-  ADD PRIMARY KEY (`ID`),
+  ADD PRIMARY KEY (`ID_ACTIVITESCLES`),
   ADD KEY `fractivitescles_id_help_foreign` (`ID_HELP`),
   ADD KEY `fractivitescles_id_matrice_foreign` (`ID_MATRICE`);
 
@@ -316,7 +315,7 @@ ALTER TABLE `fractivitescles`
 -- Index pour la table `frcanaux`
 --
 ALTER TABLE `frcanaux`
-  ADD PRIMARY KEY (`ID`),
+  ADD PRIMARY KEY (`ID_CANAUX`),
   ADD KEY `frcanaux_id_help_foreign` (`ID_HELP`),
   ADD KEY `frcanaux_id_matrice_foreign` (`ID_MATRICE`);
 
@@ -324,19 +323,19 @@ ALTER TABLE `frcanaux`
 -- Index pour la table `frhelp`
 --
 ALTER TABLE `frhelp`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`ID_HELP`);
 
 --
 -- Index pour la table `frlangue`
 --
 ALTER TABLE `frlangue`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`ID_LANGUE`);
 
 --
 -- Index pour la table `frmatrice`
 --
 ALTER TABLE `frmatrice`
-  ADD PRIMARY KEY (`ID`),
+  ADD PRIMARY KEY (`ID_MATRICE`),
   ADD KEY `frmatrice_id_projet_foreign` (`ID_PROJET`),
   ADD KEY `frmatrice_id_help_foreign` (`ID_HELP`);
 
@@ -344,7 +343,7 @@ ALTER TABLE `frmatrice`
 -- Index pour la table `frpartenariat`
 --
 ALTER TABLE `frpartenariat`
-  ADD PRIMARY KEY (`ID`),
+  ADD PRIMARY KEY (`ID_PARTENARIAT`),
   ADD KEY `frpartenariat_id_help_foreign` (`ID_HELP`),
   ADD KEY `frpartenariat_id_matrice_foreign` (`ID_MATRICE`);
 
@@ -352,7 +351,7 @@ ALTER TABLE `frpartenariat`
 -- Index pour la table `frprojet`
 --
 ALTER TABLE `frprojet`
-  ADD PRIMARY KEY (`ID`),
+  ADD PRIMARY KEY (`ID_PROJET`),
   ADD KEY `frprojet_id_langue_foreign` (`ID_LANGUE`),
   ADD KEY `frprojet_id_help_foreign` (`ID_HELP`);
 
@@ -360,7 +359,7 @@ ALTER TABLE `frprojet`
 -- Index pour la table `frpropositiondevaleur`
 --
 ALTER TABLE `frpropositiondevaleur`
-  ADD PRIMARY KEY (`ID`),
+  ADD PRIMARY KEY (`ID_PROPOSITIONDEVALEUR`),
   ADD KEY `frpropositiondevaleur_id_help_foreign` (`ID_HELP`),
   ADD KEY `frpropositiondevaleur_id_matrice_foreign` (`ID_MATRICE`);
 
@@ -368,7 +367,7 @@ ALTER TABLE `frpropositiondevaleur`
 -- Index pour la table `frrelationclient`
 --
 ALTER TABLE `frrelationclient`
-  ADD PRIMARY KEY (`ID`),
+  ADD PRIMARY KEY (`ID_RELATIONCLIENT`),
   ADD KEY `frrelationclient_id_help_foreign` (`ID_HELP`),
   ADD KEY `frrelationclient_id_matrice_foreign` (`ID_MATRICE`);
 
@@ -376,7 +375,7 @@ ALTER TABLE `frrelationclient`
 -- Index pour la table `frressourcescles`
 --
 ALTER TABLE `frressourcescles`
-  ADD PRIMARY KEY (`ID`),
+  ADD PRIMARY KEY (`ID_RESSOURCESCLES`),
   ADD KEY `frressourcescles_id_help_foreign` (`ID_HELP`),
   ADD KEY `frressourcescles_id_matrice_foreign` (`ID_MATRICE`);
 
@@ -384,7 +383,7 @@ ALTER TABLE `frressourcescles`
 -- Index pour la table `frsegmentsclients`
 --
 ALTER TABLE `frsegmentsclients`
-  ADD PRIMARY KEY (`ID`),
+  ADD PRIMARY KEY (`ID_SEGMENTSCLIENTS`),
   ADD KEY `frsegmentsclients_id_help_foreign` (`ID_HELP`),
   ADD KEY `frsegmentsclients_id_matrice_foreign` (`ID_MATRICE`);
 
@@ -392,7 +391,7 @@ ALTER TABLE `frsegmentsclients`
 -- Index pour la table `frsourcesderevenus`
 --
 ALTER TABLE `frsourcesderevenus`
-  ADD PRIMARY KEY (`ID`),
+  ADD PRIMARY KEY (`ID_SOURCESDEREVENUS`),
   ADD KEY `frsourcesderevenus_id_help_foreign` (`ID_HELP`),
   ADD KEY `frsourcesderevenus_id_matrice_foreign` (`ID_MATRICE`);
 
@@ -400,7 +399,7 @@ ALTER TABLE `frsourcesderevenus`
 -- Index pour la table `frstructuredecouts`
 --
 ALTER TABLE `frstructuredecouts`
-  ADD PRIMARY KEY (`ID`),
+  ADD PRIMARY KEY (`ID_STRUCTUREDECOUTS`),
   ADD KEY `frstructuredecouts_id_help_foreign` (`ID_HELP`),
   ADD KEY `frstructuredecouts_id_matrice_foreign` (`ID_MATRICE`);
 
@@ -421,7 +420,7 @@ ALTER TABLE `password_resets`
 -- Index pour la table `roles`
 --
 ALTER TABLE `roles`
-  ADD PRIMARY KEY (`ID`),
+  ADD PRIMARY KEY (`ID_ROLES`),
   ADD UNIQUE KEY `roles_slug_unique` (`SLUG`);
 
 --
@@ -429,8 +428,7 @@ ALTER TABLE `roles`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `users_email_unique` (`email`),
-  ADD KEY `users_id_roles_foreign` (`ID_ROLES`);
+  ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
 -- AUTO_INCREMENT pour les tables exportées
@@ -440,67 +438,67 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `fractivitescles`
 --
 ALTER TABLE `fractivitescles`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_ACTIVITESCLES` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `frcanaux`
 --
 ALTER TABLE `frcanaux`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_CANAUX` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `frhelp`
 --
 ALTER TABLE `frhelp`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_HELP` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `frlangue`
 --
 ALTER TABLE `frlangue`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_LANGUE` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `frmatrice`
 --
 ALTER TABLE `frmatrice`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_MATRICE` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `frpartenariat`
 --
 ALTER TABLE `frpartenariat`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_PARTENARIAT` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `frprojet`
 --
 ALTER TABLE `frprojet`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_PROJET` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `frpropositiondevaleur`
 --
 ALTER TABLE `frpropositiondevaleur`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_PROPOSITIONDEVALEUR` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `frrelationclient`
 --
 ALTER TABLE `frrelationclient`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_RELATIONCLIENT` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `frressourcescles`
 --
 ALTER TABLE `frressourcescles`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_RESSOURCESCLES` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `frsegmentsclients`
 --
 ALTER TABLE `frsegmentsclients`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_SEGMENTSCLIENTS` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `frsourcesderevenus`
 --
 ALTER TABLE `frsourcesderevenus`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_SOURCESDEREVENUS` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `frstructuredecouts`
 --
 ALTER TABLE `frstructuredecouts`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_STRUCTUREDECOUTS` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `migrations`
 --
@@ -510,7 +508,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT pour la table `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_ROLES` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `users`
 --
@@ -524,84 +522,78 @@ ALTER TABLE `users`
 -- Contraintes pour la table `fractivitescles`
 --
 ALTER TABLE `fractivitescles`
-  ADD CONSTRAINT `fractivitescles_id_help_foreign` FOREIGN KEY (`ID_HELP`) REFERENCES `frhelp` (`ID`),
-  ADD CONSTRAINT `fractivitescles_id_matrice_foreign` FOREIGN KEY (`ID_MATRICE`) REFERENCES `frmatrice` (`ID`);
+  ADD CONSTRAINT `fractivitescles_id_help_foreign` FOREIGN KEY (`ID_HELP`) REFERENCES `frhelp` (`ID_HELP`),
+  ADD CONSTRAINT `fractivitescles_id_matrice_foreign` FOREIGN KEY (`ID_MATRICE`) REFERENCES `frmatrice` (`ID_MATRICE`);
 
 --
 -- Contraintes pour la table `frcanaux`
 --
 ALTER TABLE `frcanaux`
-  ADD CONSTRAINT `frcanaux_id_help_foreign` FOREIGN KEY (`ID_HELP`) REFERENCES `frhelp` (`ID`),
-  ADD CONSTRAINT `frcanaux_id_matrice_foreign` FOREIGN KEY (`ID_MATRICE`) REFERENCES `frmatrice` (`ID`);
+  ADD CONSTRAINT `frcanaux_id_help_foreign` FOREIGN KEY (`ID_HELP`) REFERENCES `frhelp` (`ID_HELP`),
+  ADD CONSTRAINT `frcanaux_id_matrice_foreign` FOREIGN KEY (`ID_MATRICE`) REFERENCES `frmatrice` (`ID_MATRICE`);
 
 --
 -- Contraintes pour la table `frmatrice`
 --
 ALTER TABLE `frmatrice`
-  ADD CONSTRAINT `frmatrice_id_help_foreign` FOREIGN KEY (`ID_HELP`) REFERENCES `frhelp` (`ID`),
-  ADD CONSTRAINT `frmatrice_id_projet_foreign` FOREIGN KEY (`ID_PROJET`) REFERENCES `frprojet` (`ID`);
+  ADD CONSTRAINT `frmatrice_id_help_foreign` FOREIGN KEY (`ID_HELP`) REFERENCES `frhelp` (`ID_HELP`),
+  ADD CONSTRAINT `frmatrice_id_projet_foreign` FOREIGN KEY (`ID_PROJET`) REFERENCES `frprojet` (`ID_PROJET`);
 
 --
 -- Contraintes pour la table `frpartenariat`
 --
 ALTER TABLE `frpartenariat`
-  ADD CONSTRAINT `frpartenariat_id_help_foreign` FOREIGN KEY (`ID_HELP`) REFERENCES `frhelp` (`ID`),
-  ADD CONSTRAINT `frpartenariat_id_matrice_foreign` FOREIGN KEY (`ID_MATRICE`) REFERENCES `frmatrice` (`ID`);
+  ADD CONSTRAINT `frpartenariat_id_help_foreign` FOREIGN KEY (`ID_HELP`) REFERENCES `frhelp` (`ID_HELP`),
+  ADD CONSTRAINT `frpartenariat_id_matrice_foreign` FOREIGN KEY (`ID_MATRICE`) REFERENCES `frmatrice` (`ID_MATRICE`);
 
 --
 -- Contraintes pour la table `frprojet`
 --
 ALTER TABLE `frprojet`
-  ADD CONSTRAINT `frprojet_id_help_foreign` FOREIGN KEY (`ID_HELP`) REFERENCES `frhelp` (`ID`),
-  ADD CONSTRAINT `frprojet_id_langue_foreign` FOREIGN KEY (`ID_LANGUE`) REFERENCES `frlangue` (`ID`);
+  ADD CONSTRAINT `frprojet_id_help_foreign` FOREIGN KEY (`ID_HELP`) REFERENCES `frhelp` (`ID_HELP`),
+  ADD CONSTRAINT `frprojet_id_langue_foreign` FOREIGN KEY (`ID_LANGUE`) REFERENCES `frlangue` (`ID_LANGUE`);
 
 --
 -- Contraintes pour la table `frpropositiondevaleur`
 --
 ALTER TABLE `frpropositiondevaleur`
-  ADD CONSTRAINT `frpropositiondevaleur_id_help_foreign` FOREIGN KEY (`ID_HELP`) REFERENCES `frhelp` (`ID`),
-  ADD CONSTRAINT `frpropositiondevaleur_id_matrice_foreign` FOREIGN KEY (`ID_MATRICE`) REFERENCES `frmatrice` (`ID`);
+  ADD CONSTRAINT `frpropositiondevaleur_id_help_foreign` FOREIGN KEY (`ID_HELP`) REFERENCES `frhelp` (`ID_HELP`),
+  ADD CONSTRAINT `frpropositiondevaleur_id_matrice_foreign` FOREIGN KEY (`ID_MATRICE`) REFERENCES `frmatrice` (`ID_MATRICE`);
 
 --
 -- Contraintes pour la table `frrelationclient`
 --
 ALTER TABLE `frrelationclient`
-  ADD CONSTRAINT `frrelationclient_id_help_foreign` FOREIGN KEY (`ID_HELP`) REFERENCES `frhelp` (`ID`),
-  ADD CONSTRAINT `frrelationclient_id_matrice_foreign` FOREIGN KEY (`ID_MATRICE`) REFERENCES `frmatrice` (`ID`);
+  ADD CONSTRAINT `frrelationclient_id_help_foreign` FOREIGN KEY (`ID_HELP`) REFERENCES `frhelp` (`ID_HELP`),
+  ADD CONSTRAINT `frrelationclient_id_matrice_foreign` FOREIGN KEY (`ID_MATRICE`) REFERENCES `frmatrice` (`ID_MATRICE`);
 
 --
 -- Contraintes pour la table `frressourcescles`
 --
 ALTER TABLE `frressourcescles`
-  ADD CONSTRAINT `frressourcescles_id_help_foreign` FOREIGN KEY (`ID_HELP`) REFERENCES `frhelp` (`ID`),
-  ADD CONSTRAINT `frressourcescles_id_matrice_foreign` FOREIGN KEY (`ID_MATRICE`) REFERENCES `frmatrice` (`ID`);
+  ADD CONSTRAINT `frressourcescles_id_help_foreign` FOREIGN KEY (`ID_HELP`) REFERENCES `frhelp` (`ID_HELP`),
+  ADD CONSTRAINT `frressourcescles_id_matrice_foreign` FOREIGN KEY (`ID_MATRICE`) REFERENCES `frmatrice` (`ID_MATRICE`);
 
 --
 -- Contraintes pour la table `frsegmentsclients`
 --
 ALTER TABLE `frsegmentsclients`
-  ADD CONSTRAINT `frsegmentsclients_id_help_foreign` FOREIGN KEY (`ID_HELP`) REFERENCES `frhelp` (`ID`),
-  ADD CONSTRAINT `frsegmentsclients_id_matrice_foreign` FOREIGN KEY (`ID_MATRICE`) REFERENCES `frmatrice` (`ID`);
+  ADD CONSTRAINT `frsegmentsclients_id_help_foreign` FOREIGN KEY (`ID_HELP`) REFERENCES `frhelp` (`ID_HELP`),
+  ADD CONSTRAINT `frsegmentsclients_id_matrice_foreign` FOREIGN KEY (`ID_MATRICE`) REFERENCES `frmatrice` (`ID_MATRICE`);
 
 --
 -- Contraintes pour la table `frsourcesderevenus`
 --
 ALTER TABLE `frsourcesderevenus`
-  ADD CONSTRAINT `frsourcesderevenus_id_help_foreign` FOREIGN KEY (`ID_HELP`) REFERENCES `frhelp` (`ID`),
-  ADD CONSTRAINT `frsourcesderevenus_id_matrice_foreign` FOREIGN KEY (`ID_MATRICE`) REFERENCES `frmatrice` (`ID`);
+  ADD CONSTRAINT `frsourcesderevenus_id_help_foreign` FOREIGN KEY (`ID_HELP`) REFERENCES `frhelp` (`ID_HELP`),
+  ADD CONSTRAINT `frsourcesderevenus_id_matrice_foreign` FOREIGN KEY (`ID_MATRICE`) REFERENCES `frmatrice` (`ID_MATRICE`);
 
 --
 -- Contraintes pour la table `frstructuredecouts`
 --
 ALTER TABLE `frstructuredecouts`
-  ADD CONSTRAINT `frstructuredecouts_id_help_foreign` FOREIGN KEY (`ID_HELP`) REFERENCES `frhelp` (`ID`),
-  ADD CONSTRAINT `frstructuredecouts_id_matrice_foreign` FOREIGN KEY (`ID_MATRICE`) REFERENCES `frmatrice` (`ID`);
-
---
--- Contraintes pour la table `users`
---
-ALTER TABLE `users`
-  ADD CONSTRAINT `users_id_roles_foreign` FOREIGN KEY (`ID_ROLES`) REFERENCES `roles` (`ID`);
+  ADD CONSTRAINT `frstructuredecouts_id_help_foreign` FOREIGN KEY (`ID_HELP`) REFERENCES `frhelp` (`ID_HELP`),
+  ADD CONSTRAINT `frstructuredecouts_id_matrice_foreign` FOREIGN KEY (`ID_MATRICE`) REFERENCES `frmatrice` (`ID_MATRICE`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
