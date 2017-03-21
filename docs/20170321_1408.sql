@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Mar 21 Mars 2017 à 08:57
+-- Généré le :  Mar 21 Mars 2017 à 13:08
 -- Version du serveur :  5.7.14
 -- Version de PHP :  7.0.10
 
@@ -120,6 +120,7 @@ CREATE TABLE `frprojet` (
   `TYPEPROJET` enum('1','2','3','4') COLLATE utf8_unicode_ci NOT NULL,
   `ID_LANGUE` int(10) UNSIGNED NOT NULL,
   `ID_HELP` int(10) UNSIGNED NOT NULL,
+  `ID_USERS` int(10) UNSIGNED NOT NULL,
   `DATECREATION` timestamp NOT NULL,
   `DATEENREGISTREMENT` timestamp NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -290,7 +291,7 @@ CREATE TABLE `roles` (
 --
 
 CREATE TABLE `users` (
-  `id` int(10) UNSIGNED NOT NULL,
+  `ID_USERS` int(10) UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -353,7 +354,8 @@ ALTER TABLE `frpartenariat`
 ALTER TABLE `frprojet`
   ADD PRIMARY KEY (`ID_PROJET`),
   ADD KEY `frprojet_id_langue_foreign` (`ID_LANGUE`),
-  ADD KEY `frprojet_id_help_foreign` (`ID_HELP`);
+  ADD KEY `frprojet_id_help_foreign` (`ID_HELP`),
+  ADD KEY `frprojet_id_users_foreign` (`ID_USERS`);
 
 --
 -- Index pour la table `frpropositiondevaleur`
@@ -427,7 +429,7 @@ ALTER TABLE `roles`
 -- Index pour la table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`),
+  ADD PRIMARY KEY (`ID_USERS`),
   ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
@@ -513,7 +515,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_USERS` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- Contraintes pour les tables exportées
 --
@@ -551,7 +553,8 @@ ALTER TABLE `frpartenariat`
 --
 ALTER TABLE `frprojet`
   ADD CONSTRAINT `frprojet_id_help_foreign` FOREIGN KEY (`ID_HELP`) REFERENCES `frhelp` (`ID_HELP`),
-  ADD CONSTRAINT `frprojet_id_langue_foreign` FOREIGN KEY (`ID_LANGUE`) REFERENCES `frlangue` (`ID_LANGUE`);
+  ADD CONSTRAINT `frprojet_id_langue_foreign` FOREIGN KEY (`ID_LANGUE`) REFERENCES `frlangue` (`ID_LANGUE`),
+  ADD CONSTRAINT `frprojet_id_users_foreign` FOREIGN KEY (`ID_USERS`) REFERENCES `users` (`ID_USERS`);
 
 --
 -- Contraintes pour la table `frpropositiondevaleur`
