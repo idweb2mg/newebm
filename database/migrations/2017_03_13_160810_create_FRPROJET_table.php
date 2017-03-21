@@ -23,7 +23,6 @@ class CreateFRPROJETTable extends Migration
             $table->integer('ID_USERS')->unsigned();
             $table->foreign('ID_LANGUE')->references('ID_LANGUE')->on('FRLANGUE');
             $table->foreign('ID_HELP')->references('ID_HELP')->on('FRHELP');
-            $table->foreign('ID_LANGUE')->references('ID_LANGUE')->on('FRLANGUE');
             $table->foreign('ID_USERS')->references('ID_USERS')->on('USERS');
             $table->timestamp('DATECREATION');
             $table->timestamp('DATEENREGISTREMENT');
