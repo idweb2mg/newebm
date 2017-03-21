@@ -7,6 +7,8 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Menu</div>
 
+                    <img src="../../public/img/FRMATRICE.jpg"/>
+
                 <div class="panel-body">
                     Vous êtes connecté!
                 </div>
