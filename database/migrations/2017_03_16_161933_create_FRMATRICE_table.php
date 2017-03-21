@@ -15,12 +15,12 @@ class CreateFRMATRICETable extends Migration
     {
          Schema::create('FRMATRICE', function(Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->increments('ID');
+            $table->increments('ID_MATRICE');
             $table->string('TITREMATRICE', 30);
             $table->integer('ID_PROJET')->unsigned();
             $table->integer('ID_HELP')->unsigned();
-            $table->foreign('ID_PROJET')->references('ID')->on('FRPROJET');
-            $table->foreign('ID_HELP')->references('ID')->on('FRHELP');
+            $table->foreign('ID_PROJET')->references('ID_MATRICE')->on('FRPROJET');
+            $table->foreign('ID_HELP')->references('ID_MATRICE')->on('FRHELP');
             $table->timestamp('DATECREATION');
             $table->timestamp('DATEENREGISTREMENT');
         });
@@ -36,5 +36,5 @@ class CreateFRMATRICETable extends Migration
         schema::drop('FRMATRICE');
 
     }
-    
+
 } //class CreateFRMATRICETable extends Migration

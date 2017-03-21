@@ -15,7 +15,7 @@ class CreateFRLANGUETable extends Migration
     {
       Schema::create('FRLANGUE', function(Blueprint $table){
         $table->engine = 'InnoDB';
-        $table->increments('ID');
+        $table->increments('ID_LANGUE');
         $table->string('REFERENCELANGUE', 30);
 
       });
@@ -31,4 +31,3 @@ class CreateFRLANGUETable extends Migration
       schema::drop('FRLANGUE');
     }
 }
-

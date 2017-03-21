@@ -15,14 +15,14 @@ class CreateFRPARTENARIATTable extends Migration
     {
       Schema::create('FRPARTENARIAT', function(Blueprint $table){
          $table->engine = 'InnoDB';
-       $table->increments('ID');
+       $table->increments('ID_PARTENAIRE');
        $table->enum('TYPEPARTENARIAT', array('1','2','3'));
        $table->text('CONTENUPARTENARIAT');
        $table->string('TITREPARTENARIAT',30);
        $table->integer('ID_HELP')->unsigned();
        $table->integer('ID_MATRICE')->unsigned();
-       $table->foreign('ID_HELP')->references('ID')->on('FRHELP');
-       $table->foreign('ID_MATRICE')->references('ID')->on('FRMATRICE');
+       $table->foreign('ID_HELP')->references('ID_PARTENAIRE')->on('FRHELP');
+       $table->foreign('ID_MATRICE')->references('ID_PARTENAIRE')->on('FRMATRICE');
        });
     }
 
