@@ -36,13 +36,13 @@
               <div class="form-group row">
                 <label for="CONTENUPARTENARIAT" class="col-2 col-form-label">CONTENU</label>
                 <div class="col-10">
-                  <input class="form-control" type="text" name="CONTENU" id="CONTENU">
+                  <input class="form-control" type="text" name="CONTENUPARTENARIAT" id="CONTENUPARTENARIAT">
                 </div>
               </div>
               <input type="hidden" name="ID_PARTENAIRE" value=""></label>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">FERMER</button>
-                <button type="submit" class="btn btn-primary">SAUVEGARDER</button>
+                <button type="submit" name="action" value="sauvegarder" class="btn btn-primary">SAUVEGARDER</button>
               </div>
             </form>
           </div>
@@ -66,7 +66,7 @@
                 <h4 class="modal-title" id="myModalLabel">Activités Clés</h4>
               </div>
               <div class="modal-body">
-                <form method="post">
+                <form method="post" id="edit_activite">
                   <div class="form-group row">
                     <label for="TITRE" class="col-2 col-form-label">TITRE</label>
                     <div class="col-10">
@@ -89,11 +89,12 @@
                     </div>
                   </div>
                   <label for="ID_ACTIVITE" class="col-2 col-form-label hidden" name="ID_ACTIVITE"></label>
+                  <button type="button" class="btn btn-default" data-dismiss="modal">FERMER</button>
+                  <button type="submit" name="action" value="sauvegarder" class="btn btn-primary">SAUVEGARDER</button>
                 </form>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">FERMER</button>
-                <button type="submit" class="btn btn-primary">SAUVEGARDER</button>
+
               </div>
             </div>
           </div>
@@ -114,7 +115,7 @@
                 <h4 class="modal-title" id="myModalLabel">Ressources Clés</h4>
               </div>
               <div class="modal-body">
-                <form method="post">
+                <form method="post" id="edit_ressources">
                   <div class="form-group row">
                     <label for="TITRE" class="col-2 col-form-label">TITRE</label>
                     <div class="col-10">
@@ -152,11 +153,12 @@
                     </div>
                   </div>
                   <label for="ID_RESSOURCESCLES" class="col-2 col-form-label hidden" name="ID_RESSOURCESCLES"></label>
+                  <button type="button" class="btn btn-default" data-dismiss="modal">FERMER</button>
+                  <button type="submit" name="action" value="sauvegarder" class="btn btn-primary">SAUVEGARDER</button>
                 </form>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">FERMER</button>
-                <button type="submit" class="btn btn-primary">SAUVEGARDER</button>
+
               </div>
             </div>
           </div>
@@ -177,7 +179,7 @@
             <h4 class="modal-title" id="myModalLabel">Proposition de Valeur</h4>
           </div>
           <div class="modal-body">
-            <form method="post">
+            <form method="post" id="edit_propositions">
               <div class="form-group row">
                 <label for="TITREPROPOSITIONSDEVALEUR" class="col-2 col-form-label">TITRE</label>
                 <div class="col-10">
@@ -208,11 +210,12 @@
                 </div>
               </div>
               <label for="ID_PROPOSITIONDEVALEUR" class="col-2 col-form-label hidden" name="ID_PROPOSITIONDEVALEUR"></label>
+              <button type="button" class="btn btn-default" data-dismiss="modal">FERMER</button>
+              <button type="submit" name="action" value="sauvegarder" class="btn btn-primary">SAUVEGARDER</button>
             </form>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">FERMER</button>
-            <button type="submit" class="btn btn-primary">SAUVEGARDER</button>
+
           </div>
         </div>
       </div>
@@ -235,7 +238,7 @@
                   <h4 class="modal-title" id="myModalLabel">Relation Client</h4>
                 </div>
                 <div class="modal-body">
-                  <form method="post">
+                  <form method="post" id="edit_relation">
                     <div class="form-group row">
                       <label for="TITRERELATIONCLIENT" class="col-2 col-form-label">TITRE</label>
                       <div class="col-10">
@@ -261,11 +264,12 @@
                       </div>
                     </div>
                     <label for="ID_RELATION" class="col-2 col-form-label hidden" name="ID_RELATION"></label>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">FERMER</button>
+                    <button type="submit" name="action" value="sauvegarder" class="btn btn-primary">SAUVEGARDER</button>
                   </form>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">FERMER</button>
-                  <button type="submit" class="btn btn-primary">SAUVEGARDER</button>
+
                 </div>
               </div>
             </div>
@@ -286,7 +290,7 @@
                   <h4 class="modal-title" id="myModalLabel">Canaux de distributions</h4>
                 </div>
                 <div class="modal-body">
-                  <form method="post">
+                  <form method="post" id="edit_canaux">
                     <div class="form-group row">
                       <label for="TITRECANAUX" class="col-2 col-form-label">TITRE</label>
                       <div class="col-10">
@@ -343,11 +347,12 @@
                       </div>
                     </div>
                     <label for="ID_CANAUX" class="col-2 col-form-label hidden" name="ID_CANAUX"></label>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">FERMER</button>
+                    <button type="submit" name="action" value="sauvegarder" class="btn btn-primary">SAUVEGARDER</button>
                   </form>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">FERMER</button>
-                  <button type="submit" class="btn btn-primary">SAUVEGARDER</button>
+
                 </div>
               </div>
             </div>
@@ -368,7 +373,7 @@
             <h4 class="modal-title" id="myModalLabel">Segments Clients</h4>
           </div>
           <div class="modal-body">
-            <form method="post">
+            <form method="post" id="edit_segments">
               <div class="form-group row">
                 <label for="TITRESEGMENTS" class="col-2 col-form-label">TITRE</label>
                 <div class="col-10">
@@ -395,11 +400,12 @@
                 </div>
               </div>
               <label for="ID_SEGMENTS" class="col-2 col-form-label hidden" name="ID_SEGMENTS"></label>
+              <button type="button" class="btn btn-default" data-dismiss="modal">FERMER</button>
+              <button type="submit" name="action" value="sauvegarder" class="btn btn-primary">SAUVEGARDER</button>
             </form>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">FERMER</button>
-            <button type="submit" class="btn btn-primary">SAUVEGARDER</button>
+
           </div>
         </div>
       </div>
@@ -420,7 +426,7 @@
             <h4 class="modal-title" id="myModalLabel">Structure de coûts</h4>
           </div>
           <div class="modal-body">
-            <form method="post">
+            <form method="post" id="edit_structures">
               <label for="TITRE" class="col-2 col-form-label">TITRE</label>
               <div class="col-10">
                 <input class="form-control" type="text" name="TITRESTRUCTUREDECOUTS" id="TITRE">
@@ -458,11 +464,12 @@
               </div>
             </div>
             <label for="ID_STRUCTUREDECOUTS" class="col-2 col-form-label hidden" name="ID_STRUCTUREDECOUTS"></label>
+            <button type="button" class="btn btn-default" data-dismiss="modal">FERMER</button>
+            <button type="submit" name="action" value="sauvegarder" class="btn btn-primary">SAUVEGARDER</button>
             </form>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">FERMER</button>
-            <button type="submit" class="btn btn-primary">SAUVEGARDER</button>
+
           </div>
         </div>
       </div>
@@ -481,7 +488,7 @@
             <h4 class="modal-title" id="myModalLabel">Sources de Revenus</h4>
           </div>
           <div class="modal-body">
-            <form method="post">
+            <form method="post" id="edit_sources">
               <div class="form-group row">
                 <label for="TITRE" class="col-2 col-form-label">TITRE</label>
                 <div class="col-10">
@@ -532,11 +539,12 @@
                 </div>
               </div>
               <label for="ID_SOURCE" class="col-2 col-form-label hidden" name="ID_SOURCE"></label>
+              <button type="button" class="btn btn-default" data-dismiss="modal">FERMER</button>
+              <button type="submit" name="action" value="sauvegarder" class="btn btn-primary">SAUVEGARDER</button>
             </form>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">FERMER</button>
-            <button type="submit" class="btn btn-primary">SAUVEGARDER</button>
+
           </div>
         </div>
       </div>
@@ -568,6 +576,7 @@ $('form#edit_partenaires').on('submit', function(event){
         $('#partenaires').modal('hide')
       } else {
         // on affiche les messages d'erreur dans la popin
+        $("<div class="alert alert-warning"><strong>Warning!</strong> Tous les champs doivent êtres remplis </div>").appendTo("#edit_partenaires");
       }
     }
   );

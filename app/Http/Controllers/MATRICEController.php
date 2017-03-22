@@ -6,8 +6,9 @@ use Illuminate\Http\Request;
 
 class MATRICEController extends Controller
 {
-  public function view(){
-    return view('frmatrice');
+  public function view($ID_MATRICE){
+    $ID_MATRICE=DB::table('frmatrice')->where('ID_MATRICE')->get();
+    return view('frmatrice', ['MATRICE'=>$ID_MATRICE]);
   }
 
 
@@ -113,20 +114,63 @@ class MATRICEController extends Controller
 
   public function editPartenaires()
   {
-    $validationForm = true;
 
-    if ($validationForm) {
-      // enregistrement en bdd
+
+
+
+    if (isset(Input::get('action'))&& Input::get('action')=='sauvegarder') {
+      // enregistrement en bdd et action de modifier dans la basse de donnée avec une matrice existant
+      $FRPARTENARIAT = new FRPARTENARIAT();
+      $FRPARTENARIAT->TITREPARTENARIAT = Input::get('TITREPARTENARIAT');
+      $FRPARTENARIAT->TYPEPARTENARIAT= Input::get('TYPEPARTENARIAT');
+    //  $FRSEGMENTSCLIENTS->LIBELLEPROJET= Input::get('LIBELLEPROJET');
+      $FRPARTENARIAT->CONTENUPARTENARIAT= Input::get('CONTENUPARTENARIAT');
+      $FRPARTENARIAT->ID_PARTENARIAT = Input::get('ID_PARTENARIAT');
+      $FRPARTENARIAT->save();
+
       $response = [
-        'status' => 'success'
+        'status' => 'modifier dans base de donnéee'
         // d'autres infos
       ];
     } else {
+      // enregistrement en bdd et action de sauvegarder dans la basse de donnée avec une nouvelle matrice
+      $FRPARTENARIAT = new FRPARTENARIAT();
+      $FRPARTENARIAT->TITREPARTENARIAT = Input::get('TITREPARTENARIAT');
+      $FRPARTENARIAT->TYPEPARTENARIAT= Input::get('TYPEPARTENARIAT');
+    //  $FRSEGMENTSCLIENTS->LIBELLEPROJET= Input::get('LIBELLEPROJET');
+      $FRPARTENARIAT->CONTENUPARTENARIAT= Input::get('CONTENUPARTENARIAT');
+
+      $FRPARTENARIAT->save();
       $response = [
-        'status' => 'error'
+        'status' => 'sauvegarder dans la base de donnée avec une nouvelle matrice'
         // d'autres infos
       ];
     }
+    // Récupère toutes les infos dans la table Partenaire
+      $Partenaires = DB::table('FRPARTENARIAT')->get();
+      $response = [
+        'status' => 'Récupère toutes les infos dans la table Partenaire'
+        // d'autres infos
+      ];
+        $response['ID_PARTENARIAT']=$Partenaires['ID_PARTENARIAT'];
+        $response['TITREPARTENARIAT']=$Partenaires['TITREPARTENARIAT'];
+        $response['TYPEPARTENARIAT']=$Partenaires['TYPEPARTENARIAT'];
+        $response['CONTENUPARTENARIAT']=$Partenaires['CONTENUPARTENARIAT'];
+
+    if(isset(Input::['ID_PARTENARIAT']) && is_numeric(Input::['ID_PARTENARIAT'])){
+      $Partenaire = DB::table('FRPARTENARIAT')
+      ->where('ID_PARTENARIAT')
+      ->get();
+
+      $response = [
+        'status' => 'Récupère toutes les infos dans la table Partenaire pour mettre à jour les champs'
+        // d'autres infos
+      ];
+    }
+    $response['ID_PARTENARIAT'] = (isset($Partenaire)) ? $Partenaire['ID_PARTENARIAT'] : '';
+    $response['TITREPARTENARIAT'] = (isset($Partenaire)) ? $Partenaire['TITREPARTENARIAT'] : '';
+    $response['TYPEPARTENARIAT'] = (isset($Partenaire)) ? $Partenaire['TYPEPARTENARIAT'] : '';
+    $response['CONTENUPARTENARIAT'] = (isset($Partenaire)) ? $Partenaire['CONTENUPARTENARIAT'] : '';
 
     return response()->json($response);
   }
