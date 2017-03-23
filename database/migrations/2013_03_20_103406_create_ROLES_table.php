@@ -15,7 +15,7 @@ class CreateROLESTable extends Migration
     {
       Schema::create('ROLES', function(Blueprint $table){
        $table->engine = 'InnoDB';
-       $table->increments('id');
+       $table->increments('ID_ROLES');
        $table->enum('TITLE', array('1','2','3'));
        $table->string('SLUG',10)->unique();
        $table->timestamp('DATECREATION');

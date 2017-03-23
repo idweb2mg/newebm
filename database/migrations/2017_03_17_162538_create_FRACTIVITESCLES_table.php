@@ -15,11 +15,14 @@ class CreateFRACTIVITESCLESTable extends Migration
     {
       Schema::create('FRACTIVITESCLES', function(Blueprint $table){
          $table->engine = 'InnoDB';
-       $table->increments('id');
+       $table->increments('ID_ACTIVITESCLES');
        $table->enum('TYPEACTIVITESCLES', array('1','2','3'));
        $table->text('CONTENUACTIVITESCLES');
        $table->string('TITREACTIVITESCLES',30);
-       
+       $table->integer('ID_HELP')->unsigned();
+       $table->integer('ID_MATRICE')->unsigned();
+       $table->foreign('ID_HELP')->references('ID_HELP')->on('FRHELP');
+       $table->foreign('ID_MATRICE')->references('ID_MATRICE')->on('FRMATRICE');
        });
   }
 

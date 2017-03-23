@@ -15,12 +15,14 @@ class CreateFRPROJETTable extends Migration
     {
         Schema::create('FRPROJET', function(Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->increments('id');
+            $table->increments('ID_PROJET');
             $table->string('LIBELLEPROJET', 30);
             $table->enum('TYPEPROJET', array('1','2','3','4'));
-            $table->integer('ID_MATRICE')->unsigned();
+            $table->integer('ID_LANGUE')->unsigned();
+            $table->integer('ID_HELP')->unsigned();
             $table->integer('ID_USERS')->unsigned();
-            $table->foreign('ID_MATRICE')->references('id')->on('FRMATRICE');
+            $table->foreign('ID_LANGUE')->references('ID_LANGUE')->on('FRLANGUE');
+            $table->foreign('ID_HELP')->references('ID_HELP')->on('FRHELP');
             $table->foreign('ID_USERS')->references('id')->on('USERS');
             $table->timestamp('DATECREATION');
             $table->timestamp('DATEENREGISTREMENT');

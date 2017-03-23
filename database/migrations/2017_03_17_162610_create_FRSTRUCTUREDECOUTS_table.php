@@ -15,7 +15,7 @@ class CreateFRSTRUCTUREDECOUTSTable extends Migration
     {
       Schema::create('FRSTRUCTUREDECOUTS', function(Blueprint $table){
        $table->engine = 'InnoDB';
-       $table->increments('id');
+       $table->increments('ID_STRUCTUREDECOUTS');
        $table->enum('TYPESTRUCTUREDECOUTS', array('1','2'));
        $table->text('COUTSFIXES');
        $table->text('COUTSVARIABLES');
@@ -23,7 +23,10 @@ class CreateFRSTRUCTUREDECOUTSTable extends Migration
        $table->text('ECONOMIESENVERGURE');
        $table->text('CONTENUSTRUCTUREDECOUTS');
        $table->string('TITRESTRUCTUREDECOUTS',30);
-
+       $table->integer('ID_HELP')->unsigned();
+       $table->integer('ID_MATRICE')->unsigned();
+       $table->foreign('ID_HELP')->references('ID_HELP')->on('FRHELP');
+       $table->foreign('ID_MATRICE')->references('ID_MATRICE')->on('FRMATRICE');
        });
     }
 

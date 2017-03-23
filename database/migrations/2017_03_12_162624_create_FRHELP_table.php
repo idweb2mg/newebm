@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFRLANGUETable extends Migration
+class CreateFRHELPTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateFRLANGUETable extends Migration
      */
     public function up()
     {
-      Schema::create('FRLANGUE', function(Blueprint $table){
-        $table->engine = 'InnoDB';
-        $table->increments('ID_LANGUE');
-        $table->string('REFERENCELANGUE', 30);
-
-      });
+      Schema::create('FRHELP', function(Blueprint $table){
+       $table->engine = 'InnoDB';
+       $table->increments('ID_HELP');
+       $table->string('LIBELLEHELP', 30);
+       $table->text('CONTENU');
+       });
     }
 
     /**
@@ -28,6 +28,7 @@ class CreateFRLANGUETable extends Migration
      */
     public function down()
     {
-      schema::drop('FRLANGUE');
+          schema::drop('FRHELP');
     }
-}
+
+} // class CreateFRHELPTable extends Migration

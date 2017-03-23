@@ -9,8 +9,8 @@ use Illuminate\Http\Request;
 class MATRICEController extends Controller
 {
   public function view($ID_MATRICE){
-    $ID_MATRICE= \DB::table('frmatrice')->where('ID_MATRICE')->get();
-    return view('frmatrice', ['MATRICE'=>$ID_MATRICE]);
+    $id= \DB::table('frmatrice')->where('ID_MATRICE')->get();
+    return view('frmatrice', ['MATRICE'=>$id]);
   }
 
 
@@ -114,30 +114,47 @@ class MATRICEController extends Controller
 
   }
 
-  public function editPartenaires(Request $request)
+  public function editPartenaires()
   {
     $validationForm = true;
 
     if ($validationForm) {
 
       // enregistrement en bdd et action de modifier dans la basse de donnée avec une matrice existant
-    
-      $FRPARTENARIAT = new FRPARTENARIAT;
-      $FRPARTENARIAT->TITREPARTENARIAT = $request->TITREPARTENARIAT;
+      $TITREPARTENARIAT = Input::get('TITREPARTENARIAT');
+        $TYPEPARTENARIAT = Input::get('TYPEPARTENARIAT');
+        $CONTENUPARTENARIAT = Input::get('CONTENUPARTENARIAT');
+        $ID_MATRICE = Input::get('ID_MATRICE');
+        $ID_HELP = Input::get('ID_HELP');
 
-      $FRPARTENARIAT->TYPEPARTENARIAT = $request->TYPEPARTENARIAT;
-      $FRPARTENARIAT->CONTENUPARTENARIAT = $request->CONTENUPARTENARIAT;
+      /*$FRPARTENARIAT = new FRPARTENARIAT();
+      //$FRPARTENARIAT->TITREPARTENARIAT = $request->TITREPARTENARIAT;
+      $FRPARTENARIAT->TITREPARTENARIAT = $TITREPARTENARIAT;
+      $FRPARTENARIAT->ID_MATRICE = $ID_MATRICE;
+      $FRPARTENARIAT->ID_HELP = $ID_HELP;
+    //$FRPARTENARIAT->id = $request->id;
 
-      $FRPARTENARIAT->save();
 
+      //
 
-
-
+      $FRPARTENARIAT->TYPEPARTENARIAT = $TYPEPARTENARIAT;
+      $FRPARTENARIAT->CONTENUPARTENARIAT = $CONTENUPARTENARIAT;
+      //$FRPARTENARIAT->where('id')->get();
+      //$FRPARTENARIAT->get();
       $response = ['status' => 'modifier dans base de donnéee'];
+ */
+    }else {
+      // enregistrement en bdd et action de sauvegarder dans la basse de donnée avec une nouvelle matrice
+      //$FRPARTENARIAT = new FRPARTENARIAT();
+      //$FRPARTENARIAT->TITREPARTENARIAT = Input::get('TITREPARTENARIAT');
+      //$FRPARTENARIAT->TYPEPARTENARIAT= Input::get('TYPEPARTENARIAT');
+    //  $FRSEGMENTSCLIENTS->LIBELLEPROJET= Input::get('LIBELLEPROJET');
+      //$FRPARTENARIAT->CONTENUPARTENARIAT= Input::get('CONTENUPARTENARIAT');
 
+      //$FRPARTENARIAT->save();
     }
 
-    return \Response::json($FRPARTENARIAT);
+    return \Response::json($TITREPARTENARIAT);
   }
 
 
