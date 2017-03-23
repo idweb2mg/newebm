@@ -20,7 +20,7 @@ projet.blade.php
 								<input type="text" id="libellecourt" name="libellecourt" required placeholder="ex. wf3" />
 							-->
 								<label for="libellelong">Libelle projet</label>
-								<input type="text" id="libelleprojet" name="libelleprojet" required placeholder="projet, raison sociale" />
+								<input type="text" id="LIBELLEPROJET" name="LIBELLEPROJET" required placeholder="projet, raison sociale" />
 								<br />
 
 								<label for="categorie">Catégorie d'activité</label>

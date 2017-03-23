@@ -1,16 +1,14 @@
-﻿@extends('layouts.app')
+@extends('layouts.app')
 
 @section('content')
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Menu</div>
-
-                    <img src="../../public/img/FRMATRICE.jpg"/>
+                <div class="panel-heading">Vous êtes maintenant connecté !</div>
 
                 <div class="panel-body">
-                    Vous êtes connecté!
+                    <a href="#">Créez votre projet maintenant !</a>
                 </div>
             </div>
         </div>

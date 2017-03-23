@@ -10,16 +10,18 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+//alexis
+Route::get('/', 'HomeController@welcome' );
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-<<<<<<< HEAD
 Route::get('MATRICE/{ID_MATRICE}', 'MATRICEController@view');
 Route::any('/edit_partenaires', 'MATRICEController@editPartenaires')->name('edit_partenaires');
 
+Auth::routes();
 
-Route::get('layout', function () {
-    return view('layout');
-});
+Route::get('/home', 'HomeController@index');
+
+// Users
+Route::get('user/sort/{role?}', 'UserController@index');
+Route::resource('user', 'UserController', ['except' => 'index']);
+
