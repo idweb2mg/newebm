@@ -15,17 +15,14 @@ class CreateFRRESSOURCESCLESTable extends Migration
     {
       Schema::create('FRRESSOURCESCLES', function(Blueprint $table){
          $table->engine = 'InnoDB';
-       $table->increments('ID_RESSOURCESCLES');
+       $table->increments('id');
        $table->text('TYPEPHYSIQUES');
        $table->text('TYPEINTELLECTUELLES');
        $table->text('TYPEHUMAINES');
        $table->text('TYPEFINANCIERES');
        $table->text('CONTENURESSOURCESCLES');
        $table->string('TITRERESSOURCESCLES',30);
-       $table->integer('ID_HELP')->unsigned();
-       $table->integer('ID_MATRICE')->unsigned();
-       $table->foreign('ID_HELP')->references('ID_HELP')->on('FRHELP');
-       $table->foreign('ID_MATRICE')->references('ID_MATRICE')->on('FRMATRICE');
+      
        });
     }
 

@@ -15,5 +15,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('MATRICE/{ID_MATRICE}', 'MATRICEController@view');
-Route::any('/edit_partenaires', 'MATRICEController@editPartenaires')->name('edit_partenaires');
+Route::get('MATRICE/{id}', 'MATRICEController@view');
+Route::any('/MATRICE/edit_partenaires', 'MATRICEController@editPartenaires')->name('edit_partenaires');

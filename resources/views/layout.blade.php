@@ -33,9 +33,9 @@ ebm ~ layout.blade.php
         <meta name="author" 			content="Vivien Maillard - Georges-Alexis Kimbidima - JP Rakotoarison"/>
 
         <!-- Lien css et font police de caracteres specifique -->
-        <link rel="stylesheet" href="css/app.css" />
-        <link rel="stylesheet" href="css/back.css" />
-        <link rel="stylesheet" href="css/front.css" />
+        <link rel="stylesheet" href="{{ asset('css/app.css') }}" />
+        <link rel="stylesheet" href="{{ asset('css/back.css') }}" />
+        <link rel="stylesheet" href="{{ asset('css/front.css') }}" />
           <!-- Déclaration des balises <meta> et <link> : -->
 
         @yield('head')
@@ -90,9 +90,9 @@ ebm ~ layout.blade.php
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script>
-    /*$.ajaxSetup({
+    $.ajaxSetup({
       headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        'X-CSRF-TOKEN': $('meta[name="csrf_token"]').attr('content')
       }
     });
     $(function() {

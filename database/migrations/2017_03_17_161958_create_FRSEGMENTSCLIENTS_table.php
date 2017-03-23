@@ -15,14 +15,11 @@ class CreateFRSEGMENTSCLIENTSTable extends Migration
     {
       Schema::create('FRSEGMENTSCLIENTS', function(Blueprint $table){
       $table->engine = 'InnoDB';
-       $table->increments('ID_SEGMENTSCLIENTS');
+       $table->increments('id');
        $table->enum('TYPESEGMENTSCLIENTS', array('1','2','3','4','5'));
        $table->text('CONTENUSEGMENTSCLIENTS');
        $table->string('TITRESEGMENTSCLIENTS',30);
-       $table->integer('ID_HELP')->unsigned();
-       $table->integer('ID_MATRICE')->unsigned();
-       $table->foreign('ID_HELP')->references('ID_HELP')->on('FRHELP');
-       $table->foreign('ID_MATRICE')->references('ID_MATRICE')->on('FRMATRICE');
+       
      });
     }
 

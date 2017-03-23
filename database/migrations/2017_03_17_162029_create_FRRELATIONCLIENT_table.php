@@ -15,14 +15,11 @@ class CreateFRRELATIONCLIENTTable extends Migration
     {
       Schema::create('FRRELATIONCLIENT', function(Blueprint $table){
        $table->engine = 'InnoDB';
-       $table->increments('ID_RELATIONCLIENT');
+       $table->increments('id');
        $table->enum('TYPERELATIONCLIENT', array('1','2','3','4','5','6'));
        $table->text('CONTENURELATIONCLIENT');
        $table->string('TITRERELATIONCLIENT',30);
-       $table->integer('ID_HELP')->unsigned();
-       $table->integer('ID_MATRICE')->unsigned();
-       $table->foreign('ID_HELP')->references('ID_HELP')->on('FRHELP');
-       $table->foreign('ID_MATRICE')->references('ID_MATRICE')->on('FRMATRICE');
+
      });
     }
 

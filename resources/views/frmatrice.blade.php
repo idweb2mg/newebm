@@ -565,6 +565,7 @@
 <script>
 $('form#edit_partenaires').on('submit', function(event){
   event.preventDefault();
+  
 
   $.post(
     '{{ route('edit_partenaires') }}',
@@ -576,7 +577,7 @@ $('form#edit_partenaires').on('submit', function(event){
         $('#partenaires').modal('hide')
       } else {
         // on affiche les messages d'erreur dans la popin
-        $("<div class="alert alert-warning"><strong>Warning!</strong> Tous les champs doivent êtres remplis </div>").appendTo("#edit_partenaires");
+        $('<div class="alert alert-warning"><strong>Warning!</strong> Tous les champs doivent êtres remplis </div>').appendTo("#edit_partenaires");
       }
     }
   );
