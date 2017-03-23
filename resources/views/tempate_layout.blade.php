@@ -40,7 +40,7 @@ if (!function_exists('classActiveSegment')) {
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-        <title>e-BM</title>
+        <title>{{ trans('front/site.title') }}</title>
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
@@ -57,9 +57,9 @@ if (!function_exists('classActiveSegment')) {
         <meta name="author"       content="Vivien Maillard - Georges-Alexis Kimbidima - JP Rakotoarison"/>
 
         <!-- Lien css et font police de caracteres specifique -->
-        <link rel="stylesheet" href="asset/css/app.css"/>
-        <link rel="stylesheet" href="asset/css/back.css"/>
-        <link rel="stylesheet" href="asset/css/front.css" />
+        <link rel="stylesheet" href={{ trans('asset/css/app.css')}} />
+        <link rel="stylesheet" href={{ trans('asset/css/back.css')}} />
+        <link rel="stylesheet" href={{ trans('asset/css/front.css')}} />
 
 
         <!-- == Eventuellement d'autres spacificités à mettre ci-après dans le yield ==   -->

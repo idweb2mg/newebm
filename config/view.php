@@ -30,4 +30,6 @@ return [
 
     'compiled' => realpath(storage_path('framework/views')),
 
+    'Html'      => 'Illuminate\Html\HtmlFacade',
+
 ];
