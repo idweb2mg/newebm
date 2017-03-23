@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->integer('ID_ROLES')->unsigned();
             $table->foreign('ID_ROLES')->references('ID_ROLES')->on('ROLES');
+            $table->integer('ID_ROLES')->default(2);
             $table->boolean('seen')->default(false);
             $table->boolean('valid')->default(false);
             $table->boolean('confirmed')->default(false);
