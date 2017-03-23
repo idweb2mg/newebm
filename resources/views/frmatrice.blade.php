@@ -39,7 +39,8 @@
                   <input class="form-control" type="text" name="CONTENUPARTENARIAT" id="CONTENUPARTENARIAT">
                 </div>
               </div>
-              <input type="hidden" name="ID_PARTENAIRE" value=""></label>
+              <input type="hidden" name="ID_MATRICE" value="1">
+              <input type="hidden" name="ID_HELP" value="1">
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">FERMER</button>
                 <button type="submit" name="action" value="sauvegarder" class="btn btn-primary">SAUVEGARDER</button>
@@ -566,6 +567,7 @@
 $('form#edit_partenaires').on('submit', function(event){
   event.preventDefault();
 
+
   $.post(
     '{{ route('edit_partenaires') }}',
     $(this).serialize(),
@@ -576,7 +578,7 @@ $('form#edit_partenaires').on('submit', function(event){
         $('#partenaires').modal('hide')
       } else {
         // on affiche les messages d'erreur dans la popin
-        $("<div class="alert alert-warning"><strong>Warning!</strong> Tous les champs doivent êtres remplis </div>").appendTo("#edit_partenaires");
+        $('<div class="alert alert-warning"><strong>Warning!</strong> Tous les champs doivent êtres remplis </div>').appendTo("#edit_partenaires");
       }
     }
   );

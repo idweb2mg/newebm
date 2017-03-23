@@ -57,6 +57,7 @@ if (!function_exists('classActiveSegment')) {
         <meta name="author"       content="Vivien Maillard - Georges-Alexis Kimbidima - JP Rakotoarison"/>
 
         <!-- Lien css et font police de caracteres specifique -->
+
         <link rel="stylesheet" href="asset/css/app.css"/>
         <link rel="stylesheet" href="asset/css/back.css"/>
         <link rel="stylesheet" href="asset/css/front.css" />
