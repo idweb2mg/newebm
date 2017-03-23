@@ -34,4 +34,14 @@ class HomeController extends Controller
         return view('welcome');
     }
     
-}
+     public function frprojet(){
+        return view('frprojet');
+    }
+
+     public function layout(){
+        return view('layout');
+    }
+    
+
+
+} // class HomeController extends Controller

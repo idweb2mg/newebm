@@ -76,11 +76,18 @@ ebm ~ layout.blade.php
             @include('partials/error', ['type' => 'info', 'message' => $info])
         @endif
         @yield('main')
+
     </main>
 
     <footer>
           @yield('footer')
-          <p class="text-center"><small>Copyright &copy; e-BM</small></p>
+          <a href="#" title="alt">Informations</a> - 
+          <a href="#" title="alt">Mentions légales</a> - 
+          <a href="#" title="alt">CGU  Conditions Générales d'Utilisation</a> - 
+          <a href="#" title="alt">Contact</a> 
+          <br />
+          <p class="text-center"><small>Copyright &copy; 2017 e-BM. Tous droits réservés</small></p>
+
     </footer>
     <!-- ========== ici Scripts JS ================  -->
       <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

@@ -90,7 +90,7 @@
                     <a href="https://forge.laravel.com">Forge</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a>
 				-->
-					<a href="#">Projet</a>
+					<a href="{{ url('/home') }}">Projet</a>
                     <a href="#">Business Model</a>
                 </div>
             </div>
