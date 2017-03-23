@@ -1,0 +1,6 @@
+Procédure pour finaliser la création des table projet e-BM
+-------------------------------------------------------
+1- Console> php artisan migrate
+2- phpMyAdmin: emb > Import > Fichier : Les-3contenus-roles-et-valeur-defaut-role2-users.sql >Exécuter
+
+

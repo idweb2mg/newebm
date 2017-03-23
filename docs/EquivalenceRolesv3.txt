@@ -1,0 +1,5 @@
+	eBM           | Tuto Lavarel | Titre
+--------------------------------
+Modérateur | Redacteur    | 2 (par defaut)
+Membre      | User            | 3
+Admin         | Admin          | 1
