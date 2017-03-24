@@ -58,7 +58,7 @@ ebm ~ layout.blade.php
                         <span class="icon-bar"></span>
                     </button>
                       <a class="navbar-brand" href="index.html">{{ trans('front/site.title') }}</a>
-                
+                HELLO WORLDDDDDDDDDDDDDDDDDDDD
                 </div>
                 <div class="collapse navbar-collapse">
 
@@ -81,10 +81,10 @@ ebm ~ layout.blade.php
 
     <footer>
           @yield('footer')
-          <a href="#" title="alt">Informations</a> - 
-          <a href="#" title="alt">Mentions légales</a> - 
-          <a href="#" title="alt">CGU  Conditions Générales d'Utilisation</a> - 
-          <a href="#" title="alt">Contact</a> 
+          <a href="#" title="alt">Informations</a> -
+          <a href="#" title="alt">Mentions légales</a> -
+          <a href="#" title="alt">CGU  Conditions Générales d'Utilisation</a> -
+          <a href="#" title="alt">Contact</a>
           <br />
           <p class="text-center"><small>Copyright &copy; 2017 e-BM. Tous droits réservés</small></p>
 

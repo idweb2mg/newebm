@@ -1,0 +1,9 @@
+PARETANRIAT CLES
+
+Le bloc Partenariat clés décrit le réseau de fournisseurs et de partenaires grâce auquel le mmodèle économique fonctionne.
+
+Distinction des partenariats en fonction de objectifs visés par les partenaires :
+- Optimisation  et économie d'échelle
+- Réduction du risque et de l'incertitude
+- Acquisition de certaines ressources et activités
+

@@ -1,0 +1,12 @@
+RELATION AVEC LE CLIENT
+
+Le Bloc Relation ave le client décrit les type de relations qu'un entreprise étébli avec des segments de clientèle.
+
+Type de relation possible :
+- Assistance personnelle
+- Assistance personnelle dédiée
+- Self-service
+- Services automatisés
+- Communautés d'utilisateurs
+- Co-création
+

@@ -114,47 +114,62 @@ class MATRICEController extends Controller
 
   }
 
-  public function editPartenaires()
+  public function editPartenaires(Request $request)
   {
-    $validationForm = true;
+   $validationForm = true;
 
     if ($validationForm) {
 
-      // enregistrement en bdd et action de modifier dans la basse de donnée avec une matrice existant
-      $TITREPARTENARIAT = Input::get('TITREPARTENARIAT');
-        $TYPEPARTENARIAT = Input::get('TYPEPARTENARIAT');
-        $CONTENUPARTENARIAT = Input::get('CONTENUPARTENARIAT');
-        $ID_MATRICE = Input::get('ID_MATRICE');
-        $ID_HELP = Input::get('ID_HELP');
-
-      /*$FRPARTENARIAT = new FRPARTENARIAT();
-      //$FRPARTENARIAT->TITREPARTENARIAT = $request->TITREPARTENARIAT;
-      $FRPARTENARIAT->TITREPARTENARIAT = $TITREPARTENARIAT;
-      $FRPARTENARIAT->ID_MATRICE = $ID_MATRICE;
-      $FRPARTENARIAT->ID_HELP = $ID_HELP;
-    //$FRPARTENARIAT->id = $request->id;
-
-
-      //
-
-      $FRPARTENARIAT->TYPEPARTENARIAT = $TYPEPARTENARIAT;
-      $FRPARTENARIAT->CONTENUPARTENARIAT = $CONTENUPARTENARIAT;
-      //$FRPARTENARIAT->where('id')->get();
-      //$FRPARTENARIAT->get();
-      $response = ['status' => 'modifier dans base de donnéee'];
- */
-    }else {
       // enregistrement en bdd et action de sauvegarder dans la basse de donnée avec une nouvelle matrice
-      //$FRPARTENARIAT = new FRPARTENARIAT();
-      //$FRPARTENARIAT->TITREPARTENARIAT = Input::get('TITREPARTENARIAT');
-      //$FRPARTENARIAT->TYPEPARTENARIAT= Input::get('TYPEPARTENARIAT');
-    //  $FRSEGMENTSCLIENTS->LIBELLEPROJET= Input::get('LIBELLEPROJET');
-      //$FRPARTENARIAT->CONTENUPARTENARIAT= Input::get('CONTENUPARTENARIAT');
+        $FRPARTENARIAT=\DB::table('FRPARTENARIAT')->where('ID_PARTENARIAT','1')->get();
+                    if ($FRPARTENARIAT=true){
+                      $TITREPARTENARIAT = $request->TITREPARTENARIAT;
+                      $TYPEPARTENARIAT = $request->TYPEPARTENARIAT;
+                      $CONTENUPARTENARIAT = $request->CONTENUPARTENARIAT;
+                      $ID_MATRICE =$request->ID_MATRICE;
+                      $ID_HELP = $request->ID_HELP;
+                      $ID_PARTENARIAT = $request->ID_PARTENARIAT;
+                      $FRPARTENARIAT=\DB::table('FRPARTENARIAT')->where('ID_PARTENARIAT','1')
+                  ->update([ 'TITREPARTENARIAT' => $TITREPARTENARIAT,
+                               'TYPEPARTENARIAT' => $TYPEPARTENARIAT,
+                             'CONTENUPARTENARIAT' => $CONTENUPARTENARIAT,
+                             'ID_MATRICE' => 1,
+                             'ID_HELP' => 1
+                                               ]);
+                  // enregistrement en bdd et action de modifier dans la basse de donnée avec une matrice existant
 
-      //$FRPARTENARIAT->save();
+
+
+
+
+                }else{
+                  $TITREPARTENARIAT = $request->TITREPARTENARIAT;
+                  $TYPEPARTENARIAT = $request->TYPEPARTENARIAT;
+                  $CONTENUPARTENARIAT = $request->CONTENUPARTENARIAT;
+                  $ID_MATRICE =$request->ID_MATRICE;
+                  $ID_HELP = $request->ID_HELP;
+                  $ID_PARTENARIAT = $request->ID_PARTENARIAT;
+                  $FRPARTENARIAT=\DB::table('FRPARTENARIAT')
+
+                   ->insert([ 'ID_PARTENARIAT'=>$ID_PARTENARIAT,
+                              'TITREPARTENARIAT' => $TITREPARTENARIAT,
+                                'TYPEPARTENARIAT' => $TYPEPARTENARIAT,
+                              'CONTENUPARTENARIAT' => $CONTENUPARTENARIAT,
+                              'ID_MATRICE' => 1,
+                              'ID_HELP' => 1
+                                                ]);
+                }
+
+                  $response = ['status' => 'modifier dans base de donnéee'];
+
+    }else {
+
+
+
+
     }
 
-    return \Response::json($TITREPARTENARIAT);
+    return \Response::json($FRPARTENARIAT);
   }
 
 

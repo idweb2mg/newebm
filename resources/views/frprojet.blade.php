@@ -7,6 +7,7 @@ projet.blade.php
 
 
 ?>
+@extends('layout')
 	<section>
 		<div class="container">
 			<div class="row">
@@ -15,7 +16,7 @@ projet.blade.php
 						<div class="panel-heading">
 							<h2>Projet professionnel</h2>
 							<form>
-							<!--A router un champ dans la base  
+							<!--A router un champ dans la base
 								<label for="libellecourt">Code projet</label>
 								<input type="text" id="libellecourt" name="libellecourt" required placeholder="ex. wf3" />
 							-->
@@ -30,13 +31,13 @@ projet.blade.php
 									<option value="B2B">Business to Business</option>
 									<option value="B2B2C">Business to Business to Consumer</option>
 									<option value="B2Gov">Business to Gov</option>
-								
+
 								<input type="submit" name="validation" value="Valider" />
 
-								</select>		
+								</select>
 
 							</form>
-							
+
 						</div>
 
 					</div>

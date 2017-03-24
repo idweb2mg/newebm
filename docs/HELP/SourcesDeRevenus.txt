@@ -1,0 +1,29 @@
+SOURCES DE REVENU
+
+Le bloc Source de revenus représente la trésorerie que l'entreprise génère quprès dde chaque segment client (les coûts doivent être retiré des revenus pour créer les bénéfices).
+
+Il y a plusieurs façons de générer des flux de revenus :
+- Vente de biens
+- Droit d'usage
+- Abonnements
+- Location/Prêt
+- Licensing
+- Frais de courtage
+- Publicité
+- ...
+
+Mécanisme des prix :
+- Prix fixes
+- Prix dynamiques
+
+Les prix fixes sont basés sur des variables statiques  
+- Prix du catalogue
+- Selon les caractéristiques du produit
+- dépendent du segment de clientèle
+- volume
+
+Les prix vriables changent en fonction des conditions :
+- Négociation
+- Yield management (les prix dépendent des stocks et du moment d'achat)
+- Marché en temps réel (en fantion de l'offre et de la demande)
+- Enchères

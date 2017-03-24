@@ -16,7 +16,7 @@ class HomeController extends Controller
     {
        // $this->middleware('auth');
 
-       
+
     }
 
 
@@ -33,15 +33,19 @@ class HomeController extends Controller
      public function welcome(){
         return view('welcome');
     }
-    
+
+    public function layout(){
+       return view('layout');
+   }
+
      public function frprojet(){
         return view('frprojet');
     }
 
-     public function layout(){
-        return view('layout');
+     public function frmatrice(){
+        return view('frmatrice');
     }
-    
+
 
 
 } // class HomeController extends Controller

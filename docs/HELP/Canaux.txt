@@ -1,0 +1,21 @@
+CANAUX
+
+Le Bloc Canaux décrit comment une entreprise communique et entre en contact avec ses segments de clients pour leur apporter une proposition de valeur.
+Ces canaux sont notamment un canal de vente, un canal de distribution, un canal de communication.
+
+Types de canal :
+- Force de vente
+- Vente en ligne
+- Magasins en propre
+- Magasins de partenaires
+- Grossiste
+
+Les canaux comportent 5 phases.
+Chqaue canal peut couvrir tout ou partie de ces phases.
+On peut distinguer les canaux directs de canaux indirects, les canaux internes des canaux partenaires.
+Les 5 phases sont :
+1- Reconnaissance
+2- Evaluation
+3- Achat
+4- Prestation
+5- Après-vente

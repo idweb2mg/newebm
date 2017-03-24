@@ -1,0 +1,15 @@
+MODELE ECONOMIQUE
+
+Un modèle économique ou Business Model décrit les principes selon lesquels une organisation crée, délivre et capture de la valeur.
+Nous considérons qu'un modèle économique peut être représenté par une matrice de 9 blocs qui décrivent l'économie d'une entreprise, la façon dont elle envisage de gagner de l'argent.
+Ces blocs couvrent les 4 grandes dimensions d'une entreprise : clients, offre, infrastructure et viabilité financière.
+Les 9 blocs de bases sont :
+1- Segment de clientèle
+2- Propositions de valeur
+3- Canaux
+4- Relation avec le client
+5- Flux ou sources de revenus
+6- Ressources-clés
+7- Activités-clés
+8- Partenaires-clé
+9- Structure de coûts

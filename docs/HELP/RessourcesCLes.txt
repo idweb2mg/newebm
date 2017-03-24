@@ -1,0 +1,9 @@
+RESSOURCES CLES
+
+Le bloc Ressources clés décrit les actifs les plus importants requis pour qu'un modèle économique fonctionne.
+
+On distingue différentes catégories de ressources-clé :
+- Les ressources physiques ou matérielles
+- Les ressources intellectuelles (marque, brevet, droits d'auteur, ...)
+- Les ressoruces humaines
+- Les ressources financières

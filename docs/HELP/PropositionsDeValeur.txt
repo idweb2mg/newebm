@@ -1,0 +1,19 @@
+PROPOSITION DE VALEUR
+
+Le bloc Proposition de valeurs décrit la combinaison de produits et de service qui crée la valeur pour un segment de clientèle donné.
+Une proposition de valeur crée la valeur pour un segment de clientèle par le biais d'une combinaison spécifique d'éléments répondant aux besoins de ce segment.
+La valeur peut être quantitative (prix, rapidité du service par exemple).
+
+La liste ci-après, non limitative, répertorie des éléments qui peuvent contribuer à créer de la valeur pour le client :
+- Nouveauté
+- Performance
+- Personnalisation
+- "Accommpagner"
+- Design
+- Marque/statut
+- Prix
+- Réduction des coûts
+- Réduction des risques
+- Accessibilité
+- COmmodité/Ergonomie
+- ...

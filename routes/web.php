@@ -25,6 +25,6 @@ Route::get('/home', 'HomeController@index');
 Route::get('user/sort/{role?}', 'UserController@index');
 Route::resource('user', 'UserController', ['except' => 'index']);
 
-Route::get('layout', 'HomeController@layout');
+Route::get('/projet', 'HomeController@frprojet');
 
-Route::get('/home', 'HomeController@frprojet');
+Route::get('/matrice', 'HomeController@frmatrice');

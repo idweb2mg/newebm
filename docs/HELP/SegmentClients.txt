@@ -1,0 +1,9 @@
+SEGMENT CLIENTS
+
+Le bloc Segment de clients définit les différents groupe d'individus ou d'organisations que cible une entreprise.
+Il existe différents types de segment de clientèle :
+- Marché de masse
+- Marché de niche
+- Marché segmenté
+- Marché diversifié
+- Marchés multi-laréraux

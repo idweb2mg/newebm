@@ -1,0 +1,13 @@
+STRCUTRUE DE COUTS
+
+Le bloc Structure de coûts décrit tous les coûts inhérents à un modèle économique.
+
+- Logique de coûts
+- Logique de valeur
+
+
+Les structures de coûts peuvent posséder les caractéristiques suivants :
+- Coûts fixes
+- Coûts variables
+- Economies d'échelle
+- Economies d'envergure
