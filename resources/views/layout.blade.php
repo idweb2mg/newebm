@@ -16,7 +16,7 @@ ebm ~ layout.blade.php
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-        <title>{{ trans('front/site.title') }}</title>
+        <title>e-BM / @yield('title')</title>
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
@@ -29,10 +29,10 @@ ebm ~ layout.blade.php
         <![endif]-->
         <meta name="application-name"	content="e-BM" />
         <meta name="description"		content="Business Model en ligne" />
-        <meta name="keywords" 			content="HTML5 CSS3 JS JQUERY ANGULAR PHP7 MYSQL PDO ORM AJAX MVC POO " />
+        <meta name="keywords" 			content="HTML5 CSS3 JS JQUERY PHP7 MYSQL ORM AJAX MVC LARAVEL " />
         <meta name="author" 			content="Vivien Maillard - Georges-Alexis Kimbidima - JP Rakotoarison"/>
 
-        <!-- Lien css et font police de caracteres specifique -->
+        <!-- Lien css et font police de caracteres specifique dans public-->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}" />
         <link rel="stylesheet" href="{{ asset('css/back.css') }}" />
         <link rel="stylesheet" href="{{ asset('css/front.css') }}" />
@@ -58,7 +58,7 @@ ebm ~ layout.blade.php
                         <span class="icon-bar"></span>
                     </button>
                       <a class="navbar-brand" href="index.html">{{ trans('front/site.title') }}</a>
-                HELLO WORLDDDDDDDDDDDDDDDDDDDD
+
                 </div>
                 <div class="collapse navbar-collapse">
 

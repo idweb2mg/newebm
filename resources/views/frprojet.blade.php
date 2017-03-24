@@ -8,12 +8,18 @@ projet.blade.php
 
 ?>
 @extends('layout')
+
+@section('title')
+	<p>Page Projet</p>
+@endsection
+
 	<section>
 		<div class="container">
 			<div class="row">
 				<div class="col-md-7 col-md-offset-1">
 					<div class="panel panel-default">
 						<div class="panel-heading">
+
 							<h2>Projet professionnel</h2>
 							<form>
 							<!--A router un champ dans la base

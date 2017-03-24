@@ -79,7 +79,7 @@
 
             <div class="content">
 
-              <img src="{{asset('img/FRMATRICE.jpg')}}" width="" height="" title="Business Model" alt="Modèle économique" /> 
+              <img src="{{asset('img/FRMATRICE.jpg')}}" width="" height="" title="Business Model" alt="Modèle économique" />
 
                 <div class="title m-b-md">
                     e-BM
