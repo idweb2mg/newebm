@@ -1,13 +1,59 @@
+<?php
+
+
+
+use App\FRMATRICE;
+use App\FRPARTENARIAT;
+use App\FRACTIVITESCLES;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
+
+//$TYPEPARTENARIAT= Input::get('TYPEPARTENARIAT');
+//$ID_PARTENARIAT= Input::get('ID_PARTENARIAT');
+//$TYPEPARTENARIAT= Input::get('TYPEPARTENARIAT');
+//$TYPEPARTENARIAT= Input::get('TYPEPARTENARIAT');
+
+
+$FRPARTENAIRES= \DB::table('FRPARTENARIAT')->get();
+$FRACTIVITESCLES= \DB::table('FRACTIVITESCLES')->get();
+
+$MATRICES= \DB::table('FRMATRICE')->get();
+$HelpPartenariats= \DB::table('frhelp')->where('ID_HELP', 2)->get();
+//$ID_PARTENARIAT = (null!==$ID_PARTENARIAT) ? $ID_PARTENARIAT : '';
+
+?>
+
+
 @extends('layout')
 
 @section('main')
 
 <div class="row ">
-  <div class="col-md-2 borderblue" >
-    <h2> Partenaires Clés </h2>
-    <button type="button" class="btn btn-primary btn-lg col-md-12" data-toggle="modal" data-target="#partenaires">
-      MODIFIER
+  
+  <div class="col-md-2 borderblue"  >
+	
+	@foreach($HelpPartenariats as $HelpPartenariat)
+	<button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="bottom" data-content="{{$HelpPartenariat->CONTENU}}">  <h2 id="insertion1"> Partenaires Clés </h2></button>
+	@endforeach
+  
+    <button type="button" class="btn btn-primary btn-lg col-md-12" data-toggle="modal" data-target="#partenaires" >
+		MODIFIER
     </button>
+	
+	@if(!$FRPARTENAIRES->isEmpty())
+    @foreach($FRPARTENAIRES as $PARTENAIRE)
+
+		<strong>TYPEPARTENARIAT</strong>: 
+		@if($PARTENAIRE->TYPEPARTENARIAT==1) Optimisation et économies d'échelle
+		@elseif($PARTENAIRE->TYPEPARTENARIAT==2) Réduction du risque et de l'incertitude
+		@elseif($PARTENAIRE->TYPEPARTENARIAT==3) Acquisition certaines ressources et activités
+		@endif
+		<strong>TITREPARTENARIAT</strong>: {{$PARTENAIRE->TITREPARTENARIAT}}
+		<strong>CONTENUPARTENARIAT</strong>: {{$PARTENAIRE->CONTENUPARTENARIAT}}
+
+    @endforeach
+
+
     <div class="modal fade" id="partenaires" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -15,47 +61,131 @@
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             <h4 class="modal-title" id="myModalLabel">Partenaires clés</h4>
           </div>
-          <div class="modal-body">
-            <form method="post" id="edit_partenaires">
-              <input type="hidden" name="_token" value="{{ Session::token() }}">
-              <div class="form-group row">
-                <label for="TITREPARTENARIAT" class="col-2 col-form-label">TITRE</label>
-                <div class="col-10">
-                  <input class="form-control" type="text" name="TITREPARTENARIAT" id="TITRE">
-                </div>
-              </div>
-              <div class="form-group row">
-                <label for="TYPEPARTENARIAT">TYPE</label>
-                <select  class=" form-control" id="inlineFormCustomSelect"  name="TYPEPARTENARIAT">
-                  <option value="1">Optimisation et économies d'échelle</option>
-                  <option value="2">Réduction du risque et de l'incertitude</option>
-                  <option value="3">Acquisition certaines ressources et activités</option>
+		<div class="modal-body">
+		<form method="post" id="edit_partenaires">
+		<input type="hidden" name="_token" value="{{ Session::token() }}">
+		<div class="form-group row">
+		<label for="TITREPARTENARIAT" class="col-2 col-form-label">TITRE</label>
+		<div class="col-10">
 
-                </select>
-              </div>
-              <div class="form-group row">
-                <label for="CONTENUPARTENARIAT" class="col-2 col-form-label">CONTENU</label>
-                <div class="col-10">
-                  <input class="form-control" type="text" name="CONTENUPARTENARIAT" id="CONTENUPARTENARIAT">
-                </div>
-              </div>
-              <input type="hidden" name="ID_MATRICE" value="1">
-              <input type="hidden" name="ID_HELP" value="1">
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">FERMER</button>
-                <button type="submit" name="action" value="sauvegarder" class="btn btn-primary">SAUVEGARDER</button>
-              </div>
-            </form>
-          </div>
+		@foreach($FRPARTENAIRES as $PARTENAIRE)
+		<input class="form-control" type="text" name="TITREPARTENARIAT" id="TITRE"  value ="{{$PARTENAIRE->TITREPARTENARIAT}}"> 
 
-        </div>
-      </div>
-    </div>
-  </div>
+		</div>
+		</div>
+		<div class="form-group row">
+		<label for="TYPEPARTENARIAT">TYPE</label>
+		<select  class=" form-control" id="inlineFormCustomSelect" value =""  name="TYPEPARTENARIAT">
+
+		@if($PARTENAIRE->TYPEPARTENARIAT==1)
+		<option value="1" selected> Optimisation et économies d'échelle</option>
+
+		<option value="2">Réduction du risque et de l'incertitude</option>
+
+		<option value="3">Acquisition certaines ressources et activités</option>
+
+		@elseif($PARTENAIRE->TYPEPARTENARIAT==2)
+		<option value="1" > Optimisation et économies d'échelle</option>
+
+		<option value="2" selected>Réduction du risque et de l'incertitude</option>
+
+		<option value="3">Acquisition certaines ressources et activités</option>
+
+		@elseif($PARTENAIRE->TYPEPARTENARIAT==3)
+		<option value="1" > Optimisation et économies d'échelle</option>
+
+		<option value="2" >Réduction du risque et de l'incertitude</option>
+
+		<option value="3" selected>Acquisition certaines ressources et activités</option>
+		@endif
+
+		</select>
+
+
+		</div>
+		<div class="form-group row">
+		<label for="CONTENUPARTENARIAT" class="col-2 col-form-label">CONTENU</label>
+		<div class="col-10">
+		<input class="form-control" type="text" name="CONTENUPARTENARIAT" value ="{{$PARTENAIRE->CONTENUPARTENARIAT}}" id="CONTENUPARTENARIAT">
+		</div>
+		</div>
+		@endforeach
+
+		@foreach($MATRICES as $MATRICE)
+		<input type="hidden" name="ID_MATRICE" value="{{$MATRICE->ID_MATRICE}}">
+		@endforeach
+		<input type="hidden" name="ID_HELP" value="1">
+		@foreach($FRPARTENAIRES as $PARTENAIRE)
+		<input type="
+		" name="ID_PARTENARIAT" value="{{$PARTENAIRE->ID_PARTENARIAT}}">
+		@endforeach
+		@else
+
+
+		<div class="modal fade" id="partenaires" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+		<div class="modal-content">
+		<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		<h4 class="modal-title" id="myModalLabel">Partenaires clés</h4>
+		</div>
+		<div class="modal-body">
+		<form method="post" id="edit_partenaires">
+			<input type="hidden" name="_token" value="{{ Session::token() }}">
+			<div class="form-group row">
+			<label for="TITREPARTENARIAT" class="col-2 col-form-label">TITRE</label>
+			<div class="col-10">
+
+			<input class="form-control" type="text" name="TITREPARTENARIAT" id="TITRE"  value =""> 
+
+			</div>
+			</div>
+			<div class="form-group row">
+			<label for="TYPEPARTENARIAT">TYPE</label>
+			<select  class=" form-control" id="inlineFormCustomSelect" value =""  name="TYPEPARTENARIAT">
+
+			<option value="1" selected> Optimisation et économies d'échelle</option>
+
+			<option value="2">Réduction du risque et de l'incertitude</option>
+
+			<option value="3">Acquisition certaines ressources et activités</option>
+
+			</select>
+
+
+			</div>
+			<div class="form-group row">
+			<label for="CONTENUPARTENARIAT" class="col-2 col-form-label">CONTENU</label>
+			<div class="col-10">
+			<input class="form-control" type="text" name="CONTENUPARTENARIAT" value ="" id="CONTENUPARTENARIAT">
+			</div>
+			</div>
+
+			@foreach($MATRICES as $MATRICE)
+			<input type="hidden" name="ID_MATRICE" value="{{$MATRICE->ID_MATRICE}}">
+			@endforeach
+
+			@endif
+
+
+
+
+			<div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal">FERMER</button>
+			<button type="submit" name="action" value="sauvegarder" class="btn btn-primary">SAUVEGARDER</button>
+			</div>
+		</form>
+		</div>
+
+		</div>
+		</div>
+		</div>
+		</div>
+  
   <div class="col-md-2">
     <div class="row">
       <div class="col-md-12 bordergreen">
-        <h2> Activités Clés </h2>
+        <h2 id="insertion2"> Activités Clés </h2>
         <button type="button" class="btn btn-primary btn-lg col-md-12" data-toggle="modal" data-target="#activite">
         MODIFIER
         </button>
@@ -68,6 +198,7 @@
               </div>
               <div class="modal-body">
                 <form method="post" id="edit_activite">
+                  <input type="hidden" name="_token" value="{{ Session::token() }}">
                   <div class="form-group row">
                     <label for="TITRE" class="col-2 col-form-label">TITRE</label>
                     <div class="col-10">
@@ -89,7 +220,16 @@
                       <input class="form-control" type="text" name="CONTENUACTIVITESCLES" id="CONTENU">
                     </div>
                   </div>
-                  <label for="ID_ACTIVITE" class="col-2 col-form-label hidden" name="ID_ACTIVITE"></label>
+
+                  @foreach($MATRICES as $MATRICE)
+                  <input type="hidden" name="ID_MATRICE" value="{{$MATRICE->ID_MATRICE}}">
+                  @endforeach
+                  <input type="hidden" name="ID_HELP" value="1">
+                  @foreach($FRACTIVITESCLES as $ACTIVITE)
+                  <input type="hidden" name="ID_ACTIVITESCLES" value="{{$ACTIVITE->ID_ACTIVITESCLES}}">
+                  @endforeach
+
+                  
                   <button type="button" class="btn btn-default" data-dismiss="modal">FERMER</button>
                   <button type="submit" name="action" value="sauvegarder" class="btn btn-primary">SAUVEGARDER</button>
                 </form>
@@ -575,7 +715,24 @@ $('form#edit_partenaires').on('submit', function(event){
       console.log(response);
       if (response.status == 'success') {
         // on ferme la popin & on replie la box partenaires
-        $('#partenaires').modal('hide')
+        $('#partenaires').modal('hide');
+
+
+
+       $('@foreach($FRPARTENAIRES as $PARTENAIRE)<div id="refresh" ><p class="navbar-text">{{$PARTENAIRE->TITREPARTENARIAT}}</p><br/><p class="navbar-text">{{$PARTENAIRE->TYPEPARTENARIAT}}</p><br/><p class="navbar-text">{{$PARTENAIRE->CONTENUPARTENARIAT}}</p></div>@endforeach').insertAfter("#insertion1");
+        //$("#refresh").load('/newebm/public/MATRICE/1');
+      /* function refresh() {
+       $.ajax({
+           url: '/newebm/public/MATRICE/1', // Ton fichier ou se trouve ton chat
+           success:
+               function(retour){
+               $('#refresh').html(retour); // rafraichi toute ta DIV "bien sur il lui faut un id "
+           }
+       });
+
+     }*/
+
+//setInterval("refresh()", 1000)
       } else {
         // on affiche les messages d'erreur dans la popin
         $('<div class="alert alert-warning"><strong>Warning!</strong> Tous les champs doivent êtres remplis </div>').appendTo("#edit_partenaires");
@@ -583,6 +740,49 @@ $('form#edit_partenaires').on('submit', function(event){
     }
   );
 })
+
+
+//
+// =================== edit_activite ===================================
+//
+$('form#edit_activite').on('submit', function(event){
+  event.preventDefault();
+
+
+  $.post(
+    '{{ route('edit_activite') }}',
+    $(this).serialize(),
+    function (response) {
+      console.log(response);
+      if (response.status == 'success') {
+        // on ferme la popin & on replie la box activite
+        $('#activite').modal('hide');
+
+
+
+       $('@foreach($FRACTIVITESCLES as $ACTIVITE)<div id="refresh" ><p class="navbar-text">{{$ACTIVITE->TITREACTIVITESCLES}}</p><br/><p class="navbar-text">{{$ACTIVITE->TYPEACTIVITESCLES}}</p><br/><p class="navbar-text">{{$ACTIVITE->CONTENUACTIVITESCLES}}</p></div>@endforeach').insertAfter("#insertion2");
+        //$("#refresh").load('/newebm/public/MATRICE/1');
+      /* function refresh() {
+       $.ajax({
+           url: '/newebm/public/MATRICE/1', // Ton fichier ou se trouve ton chat
+           success:
+               function(retour){
+               $('#refresh').html(retour); // rafraichi toute ta DIV "bien sur il lui faut un id "
+           }
+       });
+
+     }*/
+
+//setInterval("refresh()", 1000)
+      } else {
+        // on affiche les messages d'erreur dans la popin
+        $('<div class="alert alert-warning"><strong>Warning!</strong> Tous les champs doivent êtres remplis </div>').appendTo("#edit_activite");
+      }
+    }
+  );
+})
+
+
 
 </script>
 @endsection

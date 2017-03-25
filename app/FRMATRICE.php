@@ -46,6 +46,11 @@ class FRMATRICE extends Model
 	      return $this->belongsTo('App\FRSTRUCTUREDECOUTS');
 	  }
 
+	 public function FRSEGMENTSCLIENTS()
+	  {
+	      return $this->belongsTo('App\FRSEGMENTSCLIENTS');
+	  }
+
 
 
 } // class FRMATRICE extends Model
