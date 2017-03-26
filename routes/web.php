@@ -29,6 +29,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
+
 // Users
 Route::get('user/sort/{role?}', 'UserController@index');
 Route::resource('user', 'UserController', ['except' => 'index']);
