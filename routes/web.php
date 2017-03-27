@@ -11,8 +11,40 @@
 |
 */
 //alexis
+Auth::routes();
 Route::get('/', 'HomeController@welcome' );
 
+Route::get('/', 'HomeController@index')->name('home');
+Route::post('/', 'HomeController@edithome')->name('edithome');
+
+// Admin
+Route::get('admin', 'AdminController@admin')->name('admin');
+
+// Users
+
+Route::get('user', 'UserController@index');
+Route::get('user', 'UserController@create');
+Route::post('user', 'UserController@store');
+
+
+Route::get('user/{id}', 'UserController@show');
+
+
+
+Route::get('user/{id}/edit', 'UserController@edit');
+Route::post('user/{id}/edit', 'UserController@edit');
+Route::get('user/{id}/projet', 'ProjetController@projet')->name('projet.projet');
+Route::post('user/{id}/projet', 'ProjetController@projet')->name('projet.projet');
+Route::put('user/{id}', 'UserController@update');
+Route::patch('user/{id}', 'UserController@update');
+
+Route::delete('user/{id}', 'UserController@destroy');
+Route::resource('user', 'UserController');
+
+//route moderateur
+Route::any('/home/editprojet', 'HomeController@editProjet')->name('edit_projet');
+
+//route matrice
 
 Route::get('MATRICE/{ID_MATRICE}', 'MATRICEController@view');
 Route::any('/edit_partenaires', 'MATRICEController@editPartenaires')->name('edit_partenaires');
@@ -25,15 +57,10 @@ Route::any('/edit_segments', 'MATRICEController@editSegments')->name('edit_segme
 Route::any('/edit_structures', 'MATRICEController@editStructures')->name('edit_structures');
 Route::any('/edit_sources', 'MATRICEController@editSources')->name('edit_sources');
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index');
 
 
-// Users
-Route::get('user/sort/{role?}', 'UserController@index');
-Route::resource('user', 'UserController', ['except' => 'index']);
 
-Route::get('/projet', 'HomeController@frprojet');
+// Email confirmation
+Route::get('resend', 'Auth\RegisterController@resend');
+Route::get('confirm/{token}', 'Auth\RegisterController@confirm');
 
-Route::get('/matrice', 'HomeController@frmatrice');
