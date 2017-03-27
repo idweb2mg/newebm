@@ -57,21 +57,19 @@ $HelpSources			= \DB::table('frhelp')->where('ID_HELP', 11)->get();
 @section('main')
 
 <div class="row ">
-  
+
   <div class="col-md-2 borderblue"  >
 <!-- PARTENARIAT -->
   @foreach($HelpPartenariats as $HelpPartenariat)
-  <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="bottom" data-content="{{$HelpPartenariat->CONTENU}}">  <h2 id="insertion1"> Partenaires Clés </h2></button>
+  <button type="button" class="btn btn-default col-md-12"  data-container="body" data-toggle="popover" data-placement="bottom" data-content="{{$HelpPartenariat->CONTENU}}">  <strong id="insertion1"> Partenaires Clés</strong> </button>
   @endforeach
-  
-
-    <button type="button" class="btn btn-primary btn-lg col-md-12" data-toggle="modal" data-target="#partenaires" >
+  <button type="button" class="btn btn-primary btn-lg col-md-12 button"  data-toggle="modal" data-target="#partenaires" >
       MODIFIER
     </button>
 @if(!$FRPARTENAIRES->isEmpty())
     @foreach($FRPARTENAIRES as $PARTENAIRE)
     <strong>TITREPARTENARIAT</strong>: {{$PARTENAIRE->TITREPARTENARIAT}}
-    <strong>TYPEPARTENARIAT</strong>: 
+    <strong>TYPEPARTENARIAT</strong>:
     @if($PARTENAIRE->TYPEPARTENARIAT==1) Optimisation et économies d'échelle
     @elseif($PARTENAIRE->TYPEPARTENARIAT==2) Réduction du risque et de l'incertitude
     @elseif($PARTENAIRE->TYPEPARTENARIAT==3) Acquisition certaines ressources et activités
@@ -94,38 +92,38 @@ $HelpSources			= \DB::table('frhelp')->where('ID_HELP', 11)->get();
               <div class="form-group row">
                 <label for="TITREPARTENARIAT" class="col-2 col-form-label">TITRE</label>
                 <div class="col-10">
-                
+
                   @foreach($FRPARTENAIRES as $PARTENAIRE)
-                  <input class="form-control" type="text" name="TITREPARTENARIAT" id="TITRE"  value ="{{$PARTENAIRE->TITREPARTENARIAT}}"> 
-                 
+                  <input class="form-control" type="text" name="TITREPARTENARIAT" id="TITRE"  value ="{{$PARTENAIRE->TITREPARTENARIAT}}">
+
                 </div>
               </div>
               <div class="form-group row">
                 <label for="TYPEPARTENARIAT">TYPE</label>
                 <select  class=" form-control" id="inlineFormCustomSelect" value =""  name="TYPEPARTENARIAT">
-                  
+
                   @if($PARTENAIRE->TYPEPARTENARIAT==1)
                   <option value="1" selected> Optimisation et économies d'échelle</option>
-                  
+
                   <option value="2">Réduction du risque et de l'incertitude</option>
-                  
+
                   <option value="3">Acquisition certaines ressources et activités</option>
 
                   @elseif($PARTENAIRE->TYPEPARTENARIAT==2)
                   <option value="1" > Optimisation et économies d'échelle</option>
-                  
+
                   <option value="2" selected>Réduction du risque et de l'incertitude</option>
-                  
+
                   <option value="3">Acquisition certaines ressources et activités</option>
 
                   @elseif($PARTENAIRE->TYPEPARTENARIAT==3)
                   <option value="1" > Optimisation et économies d'échelle</option>
-                  
+
                   <option value="2" >Réduction du risque et de l'incertitude</option>
-                  
+
                   <option value="3" selected>Acquisition certaines ressources et activités</option>
                     @endif
-                
+
                 </select>
 
 
@@ -145,7 +143,8 @@ $HelpSources			= \DB::table('frhelp')->where('ID_HELP', 11)->get();
                 @foreach($FRPARTENAIRES as $PARTENAIRE)
               <input type="
               " name="ID_PARTENARIAT" value="{{$PARTENAIRE->ID_PARTENARIAT}}">
-              @endforeach
+                  @endforeach
+
       @else
 
 
@@ -162,19 +161,19 @@ $HelpSources			= \DB::table('frhelp')->where('ID_HELP', 11)->get();
               <div class="form-group row">
                 <label for="TITREPARTENARIAT" class="col-2 col-form-label">TITRE</label>
                 <div class="col-10">
-                 
-                  <input class="form-control" type="text" name="TITREPARTENARIAT" id="TITRE"  value =""> 
-                 
+
+                  <input class="form-control" type="text" name="TITREPARTENARIAT" id="TITRE"  value ="">
+
                 </div>
               </div>
               <div class="form-group row">
                 <label for="TYPEPARTENARIAT">TYPE</label>
                 <select  class=" form-control" id="inlineFormCustomSelect" value =""  name="TYPEPARTENARIAT">
-                
+
                   <option value="1" selected> Optimisation et économies d'échelle</option>
-                  
+
                   <option value="2">Réduction du risque et de l'incertitude</option>
-                  
+
                   <option value="3">Acquisition certaines ressources et activités</option>
 
                 </select>
@@ -187,7 +186,7 @@ $HelpSources			= \DB::table('frhelp')->where('ID_HELP', 11)->get();
                   <input class="form-control" type="text" name="CONTENUPARTENARIAT" value ="" id="CONTENUPARTENARIAT">
                 </div>
               </div>
-            
+
               @foreach($MATRICES as $MATRICE)
               <input type="hidden" name="ID_MATRICE" value="{{$MATRICE->ID_MATRICE}}">
               @endforeach
@@ -212,8 +211,8 @@ $HelpSources			= \DB::table('frhelp')->where('ID_HELP', 11)->get();
     <div class="row">
       <div class="col-md-12 bordergreen">
 <!-- ACTIVITESCLES -->
-        <h2 id="insertion2"> Activités Clés </h2>
-        <button type="button" class="btn btn-primary btn-lg col-md-12" data-toggle="modal" data-target="#activite">
+        <strong id="insertion2"> Activités Clés </strong>
+        <button type="button" class="btn btn-primary btn-lg col-md-12 button" data-toggle="modal" data-target="#activite">
         MODIFIER
         </button>
         <div class="modal fade" id="activite" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -273,8 +272,8 @@ $HelpSources			= \DB::table('frhelp')->where('ID_HELP', 11)->get();
     <div class="row">
       <div class="col-md-12 borderyellow">
 <!-- RESSOURCESCLES -->
-        <h2 id="insertion3"> Ressources Clés </h2>
-        <button type="button" class="btn btn-primary btn-lg col-md-12" data-toggle="modal" data-target="#ressource">
+        <strong id="insertion3"> Ressources Clés </strong>
+        <button type="button" class="btn btn-primary btn-lg col-md-12 button" data-toggle="modal" data-target="#ressource">
         MODIFIER
         </button>
         <div class="modal fade" id="ressource" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -351,8 +350,8 @@ $HelpSources			= \DB::table('frhelp')->where('ID_HELP', 11)->get();
 
   <div class="col-md-2 borderblue">
 <!-- PROPOSITIONDEVALEUR -->
-    <h2 id="insertion4"> Proposition de Valeur </h2>
-    <button type="button" class="btn btn-primary btn-lg col-md-12" data-toggle="modal" data-target="#proposition">
+    <strong id="insertion4"> Proposition de Valeur </strong>
+    <button type="button" class="btn btn-primary btn-lg col-md-12 button" data-toggle="modal" data-target="#proposition">
       MODIFIER
     </button>
     <div class="modal fade" id="proposition" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -422,8 +421,8 @@ $HelpSources			= \DB::table('frhelp')->where('ID_HELP', 11)->get();
       <div class="row">
         <div class="col-md-12 bordergreen">
 <!-- RELATIONCLIENT -->
-          <h2 id="insertion5"> Relation Client </h2>
-          <button type="button" class="btn btn-primary btn-lg col-md-12" data-toggle="modal" data-target="#relation">
+          <strong id="insertion5"> Relation Client </strong>
+          <button type="button" class="btn btn-primary btn-lg col-md-12 button" data-toggle="modal" data-target="#relation">
             MODIFIER
           </button>
           <div class="modal fade" id="relation" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -486,8 +485,8 @@ $HelpSources			= \DB::table('frhelp')->where('ID_HELP', 11)->get();
       <div class="row">
         <div class="col-md-12 borderyellow">
 <!-- CANAUX -->
-          <h2 id="insertion6"> Canaux de distributions </h2>
-          <button type="button" class="btn btn-primary btn-lg col-md-12" data-toggle="modal" data-target="#canaux">
+          <strong id="insertion6"> Canaux de distributions </strong>
+          <button type="button" class="btn btn-primary btn-lg col-md-12 button" data-toggle="modal" data-target="#canaux">
             MODIFIER
           </button>
           <div class="modal fade" id="canaux" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -578,8 +577,8 @@ $HelpSources			= \DB::table('frhelp')->where('ID_HELP', 11)->get();
 
   <div class="col-md-2 borderblue">
 <!-- SEGMENTSCLIENTS -->
-  <h2 id="insertion7"> Segments Clients </h2>
-    <button type="button" class="btn btn-primary btn-lg col-md-12" data-toggle="modal" data-target="#segments">
+  <strong id="insertion7"> Segments Clients </strong>
+    <button type="button" class="btn btn-primary btn-lg col-md-12 button" data-toggle="modal" data-target="#segments">
       MODIFIER
     </button>
     <div class="modal fade" id="segments" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -641,8 +640,8 @@ $HelpSources			= \DB::table('frhelp')->where('ID_HELP', 11)->get();
 <div class="row">
   <div class="col-md-5 bordergrey">
 <!-- STRUCTUREDECOUTS -->
-    <h2 id="insertion8"> Structure de Coûts </h2>
-    <button type="button" class="btn btn-primary btn-lg col-md-12" data-toggle="modal" data-target="#structure">
+    <strong id="insertion8"> Structure de Coûts </strong>
+    <button type="button" class="btn btn-primary btn-lg col-md-12 button" data-toggle="modal" data-target="#structure">
       MODIFIER
     </button>
     <div class="modal fade" id="structure" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -716,8 +715,8 @@ $HelpSources			= \DB::table('frhelp')->where('ID_HELP', 11)->get();
 
   <div class="col-md-5 borderorange">
  <!-- SOURCESDEREVENUS -->
-    <h2 id="insertion9"> Sources de Revenus </h2>
-    <button type="button" class="btn btn-primary btn-lg col-md-12" data-toggle="modal" data-target="#source">
+    <strong id="insertion9"> Sources de Revenus </strong>
+    <button type="button" class="btn btn-primary btn-lg col-md-12 button" data-toggle="modal" data-target="#source">
       MODIFIER
     </button>
     <div class="modal fade" id="source" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -906,9 +905,9 @@ $('form#edit_ressources').on('submit', function(event){
         // on ferme la popin & on replie la box ressources
         $('#ressources').modal('hide');
 
+       //$('@foreach($FRRESSOURCESCLES as $RESSOURCE)<div id="refresh" ><p class="navbar-text">{{$RESSOURCE->TITRERESSOURCESCLES}}</p><br/><p class="navbar-text">{{$RESSOURCE->TYPEPHYSIQUES}}</p><br/><p class="navbar-text">{{$RESSOURCE->TYPEINTELLECTUELLES}}</p><br/><p class="navbar-text">{{$RESSOURCE->TYPEHUMAINES}}</p><br/><p class="navbar-text">{{$RESSOURCE->TYPEFINANCIERES}}</p><br/><p class="navbar-text">{{$RESSOURCE->CONTENURESSOURCESCLES}}</p></div>@endforeach').insertAfter("#insertion3");
+       $('@foreach($FRRESSOURCESCLES as $RESSOURCE)<div id="refresh" ><p class="navbar-text">{{$RESSOURCE->TYPEPHYSIQUES}}</p><br/><p class="navbar-text">{{$RESSOURCE->TYPEINTELLECTUELLES}}</p><br/><p class="navbar-text">{{$RESSOURCE->TYPEHUMAINES}}</p><br/><p class="navbar-text">{{$RESSOURCE->TYPEFINANCIERES}}</p><br/><p class="navbar-text">{{$RESSOURCE->CONTENURESSOURCESCLES}}</p><p class="navbar-text">{{$RESSOURCE->TITRERESSOURCESCLES}}</p><br/></div>@endforeach').insertAfter("#insertion3");
 
-
-       $('@foreach($FRRESSOURCESCLES as $RESSOURCE)<div id="refresh" ><p class="navbar-text">{{$RESSOURCE->TITRERESSOURCESCLES}}</p><br/><p class="navbar-text">{{$RESSOURCE->TYPEPHYSIQUES}}</p><br/><p class="navbar-text">{{$RESSOURCE->TYPEINTELLECTUELLES}}</p><br/><p class="navbar-text">{{$RESSOURCE->TYPEHUMAINES}}</p><br/><p class="navbar-text">{{$RESSOURCE->TYPEFINANCIERES}}</p><br/><p class="navbar-text">{{$RESSOURCE->CONTENURESSOURCESCLES}}</p></div>@endforeach').insertAfter("#insertion3");
         //$("#refresh").load('/newebm/public/MATRICE/1');
       /* function refresh() {
        $.ajax({
@@ -947,8 +946,9 @@ $('form#edit_propositions').on('submit', function(event){
         // on ferme la popin & on replie la box propositions
         $('#propositions').modal('hide');
 
-       $('@foreach($FRPROPOSITIONDEVALEURS as $PROPOSITION)<div id="refresh" ><p class="navbar-text">{{$PROPOSITION->TITREPROPOSITIONSDEVALEUR}}</p><br/><p class="navbar-text">{{$ACTIVITE->TYPEPROPOSITIONDEVALEUR}}</p><br/><p class="navbar-text">{{$ACTIVITE->CONTENUPROPOSITIONSDEVALEUR}}</p></div>@endforeach').insertAfter("#insertion4");
+       $('@foreach($FRPROPOSITIONDEVALEURS as $PROPOSITION)<div id="refresh" ><p class="navbar-text">{{$PROPOSITION->TITREPROPOSITIONDEVALEUR}}</p><br/><p class="navbar-text">{{$PROPOSITION->TYPEPROPOSITIONDEVALEUR}}</p><br/><p class="navbar-text">{{$PROPOSITION->CONTENUPROPOSITIONDEVALEUR}}</p></div>@endforeach').insertAfter("#insertion4");
         //$("#refresh").load('/newebm/public/MATRICE/1');
+
       /* function refresh() {
        $.ajax({
            url: '/newebm/public/MATRICE/1', // Ton fichier ou se trouve ton chat

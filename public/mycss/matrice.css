@@ -1,81 +1,50 @@
-.container
-{
-	width: 1200px;
-	min-height: 800px ;
+p{
+  display:inline-block;
+  font-size: 0.6rem;
+  color: #000;
 }
 
-
- #haut
-,#bas
-,#partenariat
-,#ac_rc
-,#activites
-,#ressources
-,#propositions
-,#rc_cx
-,#relation
-,#canaux
-,#segment
-,#structure
-,#sources
-{
-	padding: 0 ;
-}
-
-
- #partenariat
-,#activites
-,#ressources
-,#propositions
-,#relation
-,#canaux
-,#segment
-,#structure
-,#sources
+ .borderblue
+,.bordergreen
+,.borderyellow
+,.bordergrey
+,.borderorange
 {
 	border: 1px solid black;
 }
+.borderblue{
+  height: 800px;
 
- #haut
-,#bas 
-{
-	width:100%;
 }
+.bordergreen{
+ box-shadow: 5px #333;
 
- #ac_rc
-,#rc_cx
-,#partenariat
-,#propositions
-,#segment
-{
-	height:450px;	
+ height: 400px;
 }
-
- #activites
-,#ressources
-,#relation
-,#canaux
-{
-	height:50%;
+.borderyellow{
+ box-shadow: 5px #333;
+;
+ height: 400px;
 }
+.bordergrey{
+ box-shadow: 5px #333;
 
-
- #structure
-,#sources
-{
-	height:150px;
+ height: 200px;
 }
+.borderorange{
+ box-shadow: 5px #333;
 
- #partenariat
-,#activites
-,#ressources
-,#propositions
-,#relation
-,#canaux
-,#segment
-,#structure
-,#sources
-{
-	text-align:center;
-	font-weight: bold;
+ height: 200px;
+}
+h2{
+  display:inline-block;
+  font-size:1.0rem;
+  color: #C55394;
+}
+.button{
+	font-size: 0.8rem;
+}
+strong{
+  text-align: center;
+
 }
