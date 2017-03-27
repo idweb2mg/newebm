@@ -32,10 +32,22 @@ ebm ~ layout.blade.php
         <meta name="keywords" 			content="HTML5 CSS3 JS JQUERY PHP7 MYSQL ORM AJAX MVC LARAVEL " />
         <meta name="author" 			content="Vivien Maillard - Georges-Alexis Kimbidima - JP Rakotoarison"/>
 
-        <!-- Lien css et font police de caracteres specifique dans public-->
-        <link rel="stylesheet" href="{{ asset('css/app.css') }}" />
-        <link rel="stylesheet" href="{{ asset('css/back.css') }}" />
-        <link rel="stylesheet" href="{{ asset('css/front.css') }}" />
+        <!-- Lien css et font police de caracteres specifique dans public	-->
+	        <link rel="stylesheet" href="{{ asset('css/back.css') }}" />
+	        <link rel="stylesheet" href="{{ asset('css/front.css') }}" />	
+			<link rel="stylesheet" href="{{ asset('css/app.css') }}" />
+			<link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}" >
+		
+
+		<!-- Gérer mon style -->
+		<link rel="stylesheet" href="{{ asset('mycss/ebm.css') }}" >
+		<link rel="stylesheet" href="{{ asset('mycss/font-awesome.min.css') }}" >
+		<link rel="stylesheet" href="{{ asset('mycss/normalize.css') }}" >
+		<link rel="stylesheet" href="{{ asset('mycss/matrice.css') }}" >
+
+
+
+
           <!-- Déclaration des balises <meta> et <link> : -->
 
         @yield('head')

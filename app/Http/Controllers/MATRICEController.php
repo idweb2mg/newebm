@@ -5,6 +5,7 @@ use App\MATRICE;
 use App\FRMATRICE;
 use App\FRPARTENARIAT;
 use App\FRACTIVITESCLES;
+use App\FRCANAUX;
 
 use Illuminate\Http\Request;
 
@@ -122,63 +123,50 @@ class MATRICEController extends Controller
 
     if ($validationForm) {
 
+        // enregistrement en bdd et action de modifier dans la basse de donnée avec une matrice existant
+        $ID_PARTENARIAT = $request->ID_PARTENARIAT;
 
-  // enregistrement en bdd et action de modifier dans la basse de donnée avec une matrice existant
-$ID_PARTENARIAT = $request->ID_PARTENARIAT;
-  $ID_MATRICE =$request->ID_MATRICE;
+        $TITREPARTENARIAT = $request->TITREPARTENARIAT;
+        $TYPEPARTENARIAT = $request->TYPEPARTENARIAT;
+        $CONTENUPARTENARIAT = $request->CONTENUPARTENARIAT;
+        $ID_MATRICE =$request->ID_MATRICE;
+        $ID_HELP = $request->ID_HELP;
+
         $FR=\DB::table('FRPARTENARIAT')->where('ID_MATRICE', $ID_MATRICE)->get();
 
+        if (!$FR->isEmpty()){
 
+          $FRPARTENARIAT=\DB::table('FRPARTENARIAT')
+          ->update([ 'TYPEPARTENARIAT' => $TYPEPARTENARIAT,
+            'CONTENUPARTENARIAT' => $CONTENUPARTENARIAT,
+                'TITREPARTENARIAT' => $TITREPARTENARIAT,
+                    'ID_HELP' => 1,
+                  'ID_MATRICE' => $ID_MATRICE
+                ]);
 
-                              if (!$FR->isEmpty()){
-                                $TITREPARTENARIAT = $request->TITREPARTENARIAT;
-                                $TYPEPARTENARIAT = $request->TYPEPARTENARIAT;
-                                $CONTENUPARTENARIAT = $request->CONTENUPARTENARIAT;
-                                $ID_MATRICE =$request->ID_MATRICE;
-                                $ID_HELP = $request->ID_HELP;
-                                $ID_PARTENARIAT = $request->ID_PARTENARIAT;
+          $response = ['status' => 'success'];
 
-                                $FRPARTENARIAT=\DB::table('FRPARTENARIAT')
-                                ->update([ 'TYPEPARTENARIAT' => $TYPEPARTENARIAT,
-                                  'CONTENUPARTENARIAT' => $CONTENUPARTENARIAT,
-                                      'TITREPARTENARIAT' => $TITREPARTENARIAT,
-                                          'ID_HELP' => 1,
-                                        'ID_MATRICE' => $ID_MATRICE
-                                      ]);
+          }
+          else
+          {
 
+            // enregistrement en bdd et action de sauvegarder dans la basse de donnée avec une nouvelle matrice
+            $FRPARTENARIA= \DB::table('FRPARTENARIAT')
 
+            ->insert([ 'TYPEPARTENARIAT' => $TYPEPARTENARIAT,
+              'CONTENUPARTENARIAT' => $CONTENUPARTENARIAT,
+                  'TITREPARTENARIAT' => $TITREPARTENARIAT,
+                      'ID_HELP' => 1,
+                    'ID_MATRICE' => $ID_MATRICE
+                  ]);
 
+            $response = ['status' => 'success'];
+          }
 
+          $FRPARTENAIRES= \DB::table('FRPARTENARIAT')->get();
+          $MATRICES= \DB::table('FRMATRICE')->get();
 
-                                      $response = ['status' => 'success'];
-
-
-                } elseif($FR->isEmpty())
-                {
-
-                  // enregistrement en bdd et action de sauvegarder dans la basse de donnée avec une nouvelle matrice
-                  $TITREPARTENARIAT = $request->TITREPARTENARIAT;
-                  $TYPEPARTENARIAT = $request->TYPEPARTENARIAT;
-                  $CONTENUPARTENARIAT = $request->CONTENUPARTENARIAT;
-                  $ID_MATRICE =$request->ID_MATRICE;
-                  $ID_HELP = $request->ID_HELP;
-                  //$ID_PARTENARIAT = $request->ID_PARTENARIAT;
-
-                  $FRPARTENARIA= \DB::table('FRPARTENARIAT')
-
-                  ->insert([ 'TYPEPARTENARIAT' => $TYPEPARTENARIAT,
-                    'CONTENUPARTENARIAT' => $CONTENUPARTENARIAT,
-                        'TITREPARTENARIAT' => $TITREPARTENARIAT,
-                            'ID_HELP' => 1,
-                          'ID_MATRICE' => $ID_MATRICE
-                        ]);
-
-                        $response = ['status' => 'success'];
-                }
-
-                $FRPARTENAIRES= \DB::table('FRPARTENARIAT')->get();
-                $MATRICES= \DB::table('FRMATRICE')->get();
-    }
+    } // if ($validationForm)
 
     return  \Response::json($response);
   }
@@ -196,6 +184,7 @@ $ID_PARTENARIAT = $request->ID_PARTENARIAT;
 		{
 			// enregistrement en bdd et action de modifier dans la basse de donnée avec une matrice existant
 			$ID_ACTIVITESCLES = $request->ID_ACTIVITESCLES;
+
 			$ID_MATRICE 	= $request->ID_MATRICE;
 			$FR=\DB::table('FRACTIVITESCLES')->where('ID_MATRICE', $ID_MATRICE)->get();
 
@@ -220,7 +209,7 @@ $ID_PARTENARIAT = $request->ID_PARTENARIAT;
 				$response = ['status' => 'success'];
 
 
-			} elseif($FR->isEmpty())
+			} else
 				{
 					// enregistrement en bdd et action de sauvegarder dans la base de donnée avec une nouvelle matrice
 					$TYPEACTIVITESCLES 		  = $request->TYPEACTIVITESCLES;
@@ -252,6 +241,95 @@ $ID_PARTENARIAT = $request->ID_PARTENARIAT;
     		return  \Response::json($response);
 
 	} // public function editACTIVITESCLES(Request $request)
+
+
+  /*
+  	------------------------------------------------
+  	Bloc CANAUX
+  	------------------------------------------------
+  	*/
+  	public function editCANAUX(Request $request)
+  	{
+  		$validationForm = true;
+
+  		if ($validationForm)
+  		{
+  			// enregistrement en bdd et action de modifier dans la basse de donnée avec une matrice existant
+  			$ID_CANAUX = $request->ID_CANAUX;
+  			$ID_MATRICE 	= $request->ID_MATRICE;
+  			$FR=\DB::table('FRCANAUX')->where('ID_MATRICE', $ID_MATRICE)->get();
+
+  			if (!$FR->isEmpty())
+  			{
+  				$ID_CANAUX 			= $request->ID_CANAUX;
+  				$TYPECANAUX 		= $request->TYPECANAUX;
+  				$RECONNAISSANCE 	= $request->RECONNAISSANCE;
+  				$EVALUATION 		= $request->EVALUATION;
+  				$ACHAT 				= $request->ACHAT;
+  				$PRESTATION 		= $request->PRESTATION;
+  				$VENTE 				= $request->VENTE;
+  				$CONTENUCANAUX 		= $request->CONTENUCANAUX;
+  				$TITRECANAUX 		= $request->TITRECANAUX;
+  				$ID_HELP 			= $request->ID_HELP;
+  				$ID_MATRICE 		= $request->ID_MATRICE;
+
+  				$FRCANAUX = \DB::table('FRCANAUX')
+  				->update([
+  							'TYPECANAUX' 		=> $TYPECANAUX,
+  							'RECONNAISSANCE' 	=> $RECONNAISSANCE,
+  							'EVALUATION' 		=> $EVALUATION,
+  							'ACHAT' 			=> $ACHAT,
+                'PRESTATION' => $PRESTATION,
+  							'VENTE' 			=> $VENTE,
+  							'CONTENUCANAUX'		=> $CONTENUCANAUX,
+  							'TITRECANAUX'		=> $TITRECANAUX,
+  							'ID_HELP'			=> 1,
+  							'ID_MATRICE'		=> $ID_MATRICE
+  				  ]);
+
+  				$response = ['status' => 'success'];
+
+  			} else
+  				{
+  					// enregistrement en bdd et action de sauvegarder dans la base de donnée avec une nouvelle matrice
+  				$TYPECANAUX 		= $request->TYPECANAUX;
+  				$RECONNAISSANCE 	= $request->RECONNAISSANCE;
+  				$EVALUATION 		= $request->EVALUATION;
+  				$ACHAT 				= $request->ACHAT;
+  				$PRESTATION 		= $request->PRESTATION;
+  				$VENTE 				= $request->VENTE;
+  				$CONTENUCANAUX 		= $request->CONTENUCANAUX;
+  				$TITRECANAUX 		= $request->TITRECANAUX;
+  				$ID_HELP 			= $request->ID_HELP;
+  				$ID_MATRICE 		= $request->ID_MATRICE;
+  					//$ID_CANAUX 	= $request->ID_CANAUX;
+
+  					$FRCANAUX = \DB::table('FRCANAUX')
+  					->insert([
+  							'TYPECANAUX' 		=> $TYPECANAUX,
+  							'RECONNAISSANCE' 	=> $RECONNAISSANCE,
+  							'EVALUATION' 		=> $EVALUATION,
+  							'ACHAT' 			=> $ACHAT,
+                'PRESTATION' => $PRESTATION,
+  							'VENTE' 			=> $VENTE,
+  							'CONTENUCANAUX'		=> $CONTENUCANAUX,
+  							'TITRECANAUX'		=> $TITRECANAUX,
+  							'ID_HELP'			=> 1,
+  							'ID_MATRICE'		=> $ID_MATRICE
+  						]);
+
+  					$response = ['status' => 'success'];
+
+  				} // elseif($FR->isEmpty()
+
+  			//$FRCANAUX = \DB::table('FRCANAUX')->get();
+  			//$MATRICES = \DB::table('FRMATRICE')->get();
+
+  		} // if ($validationForm)
+
+  		return  \Response::json($response);
+
+  	} // public function editCANAUX(Request $request)
 
 
 

@@ -1,0 +1,81 @@
+.container
+{
+	width: 1200px;
+	min-height: 800px ;
+}
+
+
+ #haut
+,#bas
+,#partenariat
+,#ac_rc
+,#activites
+,#ressources
+,#propositions
+,#rc_cx
+,#relation
+,#canaux
+,#segment
+,#structure
+,#sources
+{
+	padding: 0 ;
+}
+
+
+ #partenariat
+,#activites
+,#ressources
+,#propositions
+,#relation
+,#canaux
+,#segment
+,#structure
+,#sources
+{
+	border: 1px solid black;
+}
+
+ #haut
+,#bas 
+{
+	width:100%;
+}
+
+ #ac_rc
+,#rc_cx
+,#partenariat
+,#propositions
+,#segment
+{
+	height:450px;	
+}
+
+ #activites
+,#ressources
+,#relation
+,#canaux
+{
+	height:50%;
+}
+
+
+ #structure
+,#sources
+{
+	height:150px;
+}
+
+ #partenariat
+,#activites
+,#ressources
+,#propositions
+,#relation
+,#canaux
+,#segment
+,#structure
+,#sources
+{
+	text-align:center;
+	font-weight: bold;
+}
