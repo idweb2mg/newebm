@@ -129,6 +129,7 @@ class MATRICEController extends Controller
         $TITREPARTENARIAT = $request->TITREPARTENARIAT;
         $TYPEPARTENARIAT = $request->TYPEPARTENARIAT;
         $CONTENUPARTENARIAT = $request->CONTENUPARTENARIAT;
+
         $ID_MATRICE =$request->ID_MATRICE;
         $ID_HELP = $request->ID_HELP;
 
@@ -183,20 +184,19 @@ class MATRICEController extends Controller
 		if ($validationForm)
 		{
 			// enregistrement en bdd et action de modifier dans la basse de donnée avec une matrice existant
-			$ID_ACTIVITESCLES = $request->ID_ACTIVITESCLES;
+      $ID_ACTIVITESCLES 		= $request->ID_ACTIVITESCLES;
 
-			$ID_MATRICE 	= $request->ID_MATRICE;
+      $TYPEACTIVITESCLES 		= $request->TYPEACTIVITESCLES;
+      $CONTENUACTIVITESCLES 	= $request->CONTENUACTIVITESCLES;
+      $TITREACTIVITESCLES 	= $request->TITREACTIVITESCLES;
+
+      $ID_HELP 				     = $request->ID_HELP;
+      $ID_MATRICE 			   = $request->ID_MATRICE;
+
 			$FR=\DB::table('FRACTIVITESCLES')->where('ID_MATRICE', $ID_MATRICE)->get();
 
 			if (!$FR->isEmpty())
 			{
-				$ID_ACTIVITESCLES 		= $request->ID_ACTIVITESCLES;
-				$TYPEACTIVITESCLES 		= $request->TYPEACTIVITESCLES;
-				$CONTENUACTIVITESCLES 	= $request->CONTENUACTIVITESCLES;
-				$TITREACTIVITESCLES 	= $request->TITREACTIVITESCLES;
-				$ID_HELP 				     = $request->ID_HELP;
-				$ID_MATRICE 			   = $request->ID_MATRICE;
-
 				$FRACTIVITESCLES = \DB::table('FRACTIVITESCLES')
 				->update([
 							'TYPEACTIVITESCLES' 	=> $TYPEACTIVITESCLES,
@@ -208,29 +208,21 @@ class MATRICEController extends Controller
 
 				$response = ['status' => 'success'];
 
-
 			} else
-				{
-					// enregistrement en bdd et action de sauvegarder dans la base de donnée avec une nouvelle matrice
-					$TYPEACTIVITESCLES 		  = $request->TYPEACTIVITESCLES;
-					$CONTENUACTIVITESCLES 	= $request->CONTENUACTIVITESCLES;
-					$TITREACTIVITESCLES 	  = $request->TITREACTIVITESCLES;
-					$ID_HELP 				        = $request->ID_HELP;
-					$ID_MATRICE 			      = $request->ID_MATRICE;
-					//$ID_ACTIVITESCLES 	= $request->ID_ACTIVITESCLES;
+			{
+				// enregistrement en bdd et action de sauvegarder dans la base de donnée avec une nouvelle matrice
+				$FRACTIVITESCLES = \DB::table('FRACTIVITESCLES')
+				->insert([
+							'TYPEACTIVITESCLES' 	=> $TYPEACTIVITESCLES,
+							'CONTENUACTIVITESCLES' 	=> $CONTENUACTIVITESCLES,
+							'TITREACTIVITESCLES'	=> $TITREACTIVITESCLES,
+							'ID_HELP' 				=> 1,
+							'ID_MATRICE' 			=> $ID_MATRICE
+					]);
 
-					$FRACTIVITESCLES = \DB::table('FRACTIVITESCLES')
-					->insert([
-								'TYPEACTIVITESCLES' 	=> $TYPEACTIVITESCLES,
-								'CONTENUACTIVITESCLES' 	=> $CONTENUACTIVITESCLES,
-								'TITREACTIVITESCLES'	=> $TITREACTIVITESCLES,
-								'ID_HELP' 				=> 1,
-								'ID_MATRICE' 			=> $ID_MATRICE
-						]);
+				$response = ['status' => 'success'];
 
-					$response = ['status' => 'success'];
-
-				} // elseif($FR->isEmpty()
+			} // elseif($FR->isEmpty()
 
 			$FRACTIVITESCLES = \DB::table('FRACTIVITESCLES')->get();
 			$MATRICES = \DB::table('FRMATRICE')->get();
@@ -254,56 +246,45 @@ class MATRICEController extends Controller
 
   		if ($validationForm)
   		{
-  			// enregistrement en bdd et action de modifier dans la basse de donnée avec une matrice existant
-  			$ID_CANAUX = $request->ID_CANAUX;
-  			$ID_MATRICE 	= $request->ID_MATRICE;
-  			$FR=\DB::table('FRCANAUX')->where('ID_MATRICE', $ID_MATRICE)->get();
+    			// enregistrement en bdd et action de modifier dans la basse de donnée avec une matrice existant
+          $ID_CANAUX 			= $request->ID_CANAUX;
 
-  			if (!$FR->isEmpty())
-  			{
-  				$ID_CANAUX 			= $request->ID_CANAUX;
-  				$TYPECANAUX 		= $request->TYPECANAUX;
-  				$RECONNAISSANCE 	= $request->RECONNAISSANCE;
-  				$EVALUATION 		= $request->EVALUATION;
-  				$ACHAT 				= $request->ACHAT;
-  				$PRESTATION 		= $request->PRESTATION;
-  				$VENTE 				= $request->VENTE;
-  				$CONTENUCANAUX 		= $request->CONTENUCANAUX;
-  				$TITRECANAUX 		= $request->TITRECANAUX;
-  				$ID_HELP 			= $request->ID_HELP;
-  				$ID_MATRICE 		= $request->ID_MATRICE;
+          $TYPECANAUX 		= $request->TYPECANAUX;
+          $RECONNAISSANCE 	= $request->RECONNAISSANCE;
+          $EVALUATION 		= $request->EVALUATION;
+          $ACHAT 				= $request->ACHAT;
+          $PRESTATION 		= $request->PRESTATION;
+          $VENTE 				= $request->VENTE;
+          $CONTENUCANAUX 		= $request->CONTENUCANAUX;
+          $TITRECANAUX 		= $request->TITRECANAUX;
 
-  				$FRCANAUX = \DB::table('FRCANAUX')
-  				->update([
-  							'TYPECANAUX' 		=> $TYPECANAUX,
-  							'RECONNAISSANCE' 	=> $RECONNAISSANCE,
-  							'EVALUATION' 		=> $EVALUATION,
-  							'ACHAT' 			=> $ACHAT,
-                'PRESTATION' => $PRESTATION,
-  							'VENTE' 			=> $VENTE,
-  							'CONTENUCANAUX'		=> $CONTENUCANAUX,
-  							'TITRECANAUX'		=> $TITRECANAUX,
-  							'ID_HELP'			=> 1,
-  							'ID_MATRICE'		=> $ID_MATRICE
-  				  ]);
+          $ID_HELP 			= $request->ID_HELP;
+          $ID_MATRICE 		= $request->ID_MATRICE;
 
-  				$response = ['status' => 'success'];
+    			$FR=\DB::table('FRCANAUX')->where('ID_MATRICE', $ID_MATRICE)->get();
 
-  			} else
+    			if (!$FR->isEmpty())
+    			{
+    				$FRCANAUX = \DB::table('FRCANAUX')
+    				->update([
+    							'TYPECANAUX' 		=> $TYPECANAUX,
+    							'RECONNAISSANCE' 	=> $RECONNAISSANCE,
+    							'EVALUATION' 		=> $EVALUATION,
+    							'ACHAT' 			=> $ACHAT,
+                  'PRESTATION' => $PRESTATION,
+    							'VENTE' 			=> $VENTE,
+    							'CONTENUCANAUX'		=> $CONTENUCANAUX,
+    							'TITRECANAUX'		=> $TITRECANAUX,
+    							'ID_HELP'			=> 1,
+    							'ID_MATRICE'		=> $ID_MATRICE
+    				  ]);
+
+    				$response = ['status' => 'success'];
+
+    			}
+          else
   				{
   					// enregistrement en bdd et action de sauvegarder dans la base de donnée avec une nouvelle matrice
-  				$TYPECANAUX 		= $request->TYPECANAUX;
-  				$RECONNAISSANCE 	= $request->RECONNAISSANCE;
-  				$EVALUATION 		= $request->EVALUATION;
-  				$ACHAT 				= $request->ACHAT;
-  				$PRESTATION 		= $request->PRESTATION;
-  				$VENTE 				= $request->VENTE;
-  				$CONTENUCANAUX 		= $request->CONTENUCANAUX;
-  				$TITRECANAUX 		= $request->TITRECANAUX;
-  				$ID_HELP 			= $request->ID_HELP;
-  				$ID_MATRICE 		= $request->ID_MATRICE;
-  					//$ID_CANAUX 	= $request->ID_CANAUX;
-
   					$FRCANAUX = \DB::table('FRCANAUX')
   					->insert([
   							'TYPECANAUX' 		=> $TYPECANAUX,
@@ -322,12 +303,12 @@ class MATRICEController extends Controller
 
   				} // elseif($FR->isEmpty()
 
-  			//$FRCANAUX = \DB::table('FRCANAUX')->get();
-  			//$MATRICES = \DB::table('FRMATRICE')->get();
+    			$FRCANAUX = \DB::table('FRCANAUX')->get();
+    			$MATRICES = \DB::table('FRMATRICE')->get();
 
-  		} // if ($validationForm)
+    		} // if ($validationForm)
 
-  		return  \Response::json($response);
+    		return  \Response::json($response);
 
   	} // public function editCANAUX(Request $request)
 
