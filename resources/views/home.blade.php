@@ -97,7 +97,7 @@ $HelpProjet = \DB::table('frhelp')->where('ID_HELP', '1')->get();
     <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title"><i class="fa fa-bar-chart-o fa-fw"></i> Inscription Utilisateur</h3>
+                <h3 class="panel-title"><i class="fa fa-bar-chart-o fa-fw"></i> Nombre de projet par jour</h3>
             </div>
             <div class="panel-body">
                 <div id="morris-area-chart"></div>

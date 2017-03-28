@@ -60,7 +60,7 @@ $HelpSources			= \DB::table('frhelp')->where('ID_HELP', 11)->get();
 @endsection
 @section('content')
 
-<div class="row ">
+<div class="row col-md-offset-1">
 
   <div class="col-md-2 borderblue"  >
 <!-- PARTENARIAT -->
@@ -208,7 +208,7 @@ $HelpSources			= \DB::table('frhelp')->where('ID_HELP', 11)->get();
     <div class="row">
       <div class="col-md-12 bordergreen">
 <!-- ACTIVITESCLES -->
-        <strong id="insertion2"> Activités Clés </strong>
+        <button type="button" class="btn btn-default col-md-12"  data-container="body" data-toggle="popover" data-placement="bottom" data-content="{{$HelpPartenariat->CONTENU}}"><strong id="insertion2"> Activités Clés </strong><button>
         <button type="button" class="btn btn-primary btn-lg col-md-12 button" data-toggle="modal" data-target="#activite">
         MODIFIER
         </button>
@@ -269,7 +269,7 @@ $HelpSources			= \DB::table('frhelp')->where('ID_HELP', 11)->get();
     <div class="row">
       <div class="col-md-12 borderyellow">
 <!-- RESSOURCESCLES -->
-        <strong id="insertion3"> Ressources Clés </strong>
+      <button type="button" class="btn btn-default col-md-12"  data-container="body" data-toggle="popover" data-placement="bottom" data-content="{{$HelpPartenariat->CONTENU}}">  <strong id="insertion3"> Ressources Clés </strong></button>
         <button type="button" class="btn btn-primary btn-lg col-md-12 button" data-toggle="modal" data-target="#ressource">
         MODIFIER
         </button>
@@ -347,7 +347,7 @@ $HelpSources			= \DB::table('frhelp')->where('ID_HELP', 11)->get();
 
   <div class="col-md-2 borderblue">
 <!-- PROPOSITIONDEVALEUR -->
-    <strong id="insertion4"> Proposition de Valeur </strong>
+  <button type="button" class="btn btn-default col-md-12"  data-container="body" data-toggle="popover" data-placement="bottom" data-content="{{$HelpPartenariat->CONTENU}}">  <strong id="insertion4"> Proposition de Valeur </strong></button>
     <button type="button" class="btn btn-primary btn-lg col-md-12 button" data-toggle="modal" data-target="#proposition">
       MODIFIER
     </button>
@@ -418,7 +418,7 @@ $HelpSources			= \DB::table('frhelp')->where('ID_HELP', 11)->get();
       <div class="row">
         <div class="col-md-12 bordergreen">
 <!-- RELATIONCLIENT -->
-          <strong id="insertion5"> Relation Client </strong>
+    <button type="button" class="btn btn-default col-md-12"  data-container="body" data-toggle="popover" data-placement="bottom" data-content="{{$HelpPartenariat->CONTENU}}">      <strong id="insertion5"> Relation Client </strong></button>
           <button type="button" class="btn btn-primary btn-lg col-md-12 button" data-toggle="modal" data-target="#relation">
             MODIFIER
           </button>
@@ -482,7 +482,7 @@ $HelpSources			= \DB::table('frhelp')->where('ID_HELP', 11)->get();
       <div class="row">
         <div class="col-md-12 borderyellow">
 <!-- CANAUX -->
-          <strong id="insertion6"> Canaux de distributions </strong>
+    <button type="button" class="btn btn-default col-md-12"  data-container="body" data-toggle="popover" data-placement="bottom" data-content="{{$HelpPartenariat->CONTENU}}">      <strong id="insertion6"> Canaux de distributions </strong></button>
           <button type="button" class="btn btn-primary btn-lg col-md-12 button" data-toggle="modal" data-target="#canaux">
             MODIFIER
           </button>
@@ -574,7 +574,7 @@ $HelpSources			= \DB::table('frhelp')->where('ID_HELP', 11)->get();
 
   <div class="col-md-2 borderblue">
 <!-- SEGMENTSCLIENTS -->
-  <strong id="insertion7"> Segments Clients </strong>
+<button type="button" class="btn btn-default col-md-12"  data-container="body" data-toggle="popover" data-placement="bottom" data-content="{{$HelpPartenariat->CONTENU}}">  <strong id="insertion7"> Segments Clients </strong></button>
     <button type="button" class="btn btn-primary btn-lg col-md-12 button" data-toggle="modal" data-target="#segments">
       MODIFIER
     </button>
@@ -634,10 +634,10 @@ $HelpSources			= \DB::table('frhelp')->where('ID_HELP', 11)->get();
     </div>
   </div>
 </div>
-<div class="row">
+<div class="row col-md-offset-1 ">
   <div class="col-md-5 bordergrey">
 <!-- STRUCTUREDECOUTS -->
-    <strong id="insertion8"> Structure de Coûts </strong>
+<button type="button" class="btn btn-default col-md-12"  data-container="body" data-toggle="popover" data-placement="bottom" data-content="{{$HelpPartenariat->CONTENU}}">    <strong id="insertion8"> Structure de Coûts </strong></button>
     <button type="button" class="btn btn-primary btn-lg col-md-12 button" data-toggle="modal" data-target="#structure">
       MODIFIER
     </button>
@@ -712,7 +712,7 @@ $HelpSources			= \DB::table('frhelp')->where('ID_HELP', 11)->get();
 
   <div class="col-md-5 borderorange">
  <!-- SOURCESDEREVENUS -->
-    <strong id="insertion9"> Sources de Revenus </strong>
+  <button type="button" class="btn btn-default col-md-12"  data-container="body" data-toggle="popover" data-placement="bottom" data-content="{{$HelpPartenariat->CONTENU}}">  <strong id="insertion9"> Sources de Revenus </strong></button>
     <button type="button" class="btn btn-primary btn-lg col-md-12 button" data-toggle="modal" data-target="#source">
       MODIFIER
     </button>
