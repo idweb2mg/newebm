@@ -5,6 +5,7 @@ use App\User;
 use App\FRPROJET;
 use Illuminate\Http\Request;
 
+
 class HomeController extends Controller
 {
         /**
@@ -26,58 +27,19 @@ class HomeController extends Controller
          */
         public function home()
         {
-              
+
                 return view('home');
         }
-        
 
-        public function editProjet(Request $request)
-         {
-       $validationForm = true;
 
-        if ($validationForm) {
-    
-            $LIBELLEPROJET = $request->LIBELLEPROJET;
-            $TYPEPROJET = $request->TYPEPROJET;
-            $ID_LANGUE = $request->ID_LANGUE ;
-            $ID_HELP = $request->ID_HELP;
-            $ID_USERS = $request->ID_USERS;
-            
-            try{$projet = \DB::table('FRPROJET')->where('ID_USERS', '1')->get();
-       }catch(\Exception $e){echo $e->getMessage();}
-                if(!$projet->isEmpty()){
-                     $FRPROJET=\DB::table('FRPROJET')->update(
 
-                ['LIBELLEPROJET' => $LIBELLEPROJET,
-                'TYPEPROJET'=> $TYPEPROJET,
-                'ID_LANGUE' =>1,
-                'ID_HELP' =>1,
-                'ID_USERS' => 1]);
-            $response = ['status' => 'success'];
-            }
-
-                }
-                else{
-            $FRPROJET=\DB::table('FRPROJET')->insert(
-
-                ['LIBELLEPROJET' => $LIBELLEPROJET,
-                'TYPEPROJET'=> $TYPEPROJET,
-                'ID_LANGUE' =>1,
-                'ID_HELP' =>1,
-                'ID_USERS' => 1]);
-            $response = ['status' => 'success'];
-            }
-         return  \Response::json($response);
-            
-
-        }
 
         public function edithome(Request $request)
     {
        $validationForm = true;
        if( $validationForm){
         // \DB::enableQueryLog();
-        $id= Input::get('ID_PROJET');
+      //  $id= Input::get('ID_PROJET');
         $DATECREATION= $request->DATECREATION;
        $projets= \DB::table('frprojet')->count();
        $date =\DB::table('frprojet')->select('DATECREATION')->get();
@@ -86,7 +48,7 @@ class HomeController extends Controller
         //$projet1= \DB::table('frprojet')->select(\DB::raw('count(*) as DATECREATION'))->groupBy('DATECREATION')->get();
         // $projet1= \DB::table('frprojet')->select(\DB::raw('count(*) as DATECREATION'))->groupBy('DATECREATION')->get();
         $projet1= \DB::select('select count(DATECREATION) as inscrits from frprojet group By DATECREATION ');
-var_dump($projet1);die;
+//var_dump($projet1);die;
         //$p= var_dump(\DB::getQueryLog($projet1));
            //$response = ['status' => 'success'];
 
@@ -99,18 +61,74 @@ var_dump($projet1);die;
        $dates = [];
 
        foreach ($date as $dateDb) {
+
          $projet1= \DB::select('select count(DATECREATION) as inscrits from frprojet group By DATECREATION ');
          //var_dump($date);
+         foreach ($projet1 as $projet) {
+           # code...
+
          $dates[] = [
            'date' => $dateDb->DATECREATION,
-           'inscrits' => $projet1
+           'inscrits' => $projet->inscrits
          ];
          //$i += 10;
        }
+     }
 //var_dump($dates);die;
 
        return  \Response::json($dates);
      }
+     public function editProjet(Request $request)
+      {
+    $validationForm = true;
 
+     if ($validationForm) {
+
+         $LIBELLEPROJET = $request->LIBELLEPROJET;
+         $TYPEPROJET = $request->TYPEPROJET;
+         $ID_LANGUE = $request->ID_LANGUE ;
+         $ID_HELP = $request->ID_HELP;
+         $ID_USERS = $request->ID_USERS;
+
+         $projet = \DB::table('FRPROJET')->where('ID_USERS', '4')->get();
+
+             if(!$projet->isEmpty()){
+                  $FRPROJET=\DB::table('FRPROJET')->update(
+
+             ['LIBELLEPROJET' => $LIBELLEPROJET,
+             'TYPEPROJET'=> $TYPEPROJET,
+             'ID_LANGUE' =>1,
+             'ID_HELP' =>1,
+             'ID_USERS' => 4]);
+         $response = ['status' => 'success'];
+         }
+
+     return  \Response::json($response);
+     }
+ }
+
+
+ public function newProjet(Request $request)
+      {
+    $validationForm = true;
+
+     if ($validationForm) {
+
+         $LIBELLEPROJET = $request->LIBELLEPROJET;
+         $TYPEPROJET = $request->TYPEPROJET;
+         $ID_LANGUE = $request->ID_LANGUE ;
+         $ID_HELP = $request->ID_HELP;
+         $ID_USERS = $request->ID_USERS;
+         $FRPROJET=\DB::table('FRPROJET')->insert(
+
+             ['LIBELLEPROJET' => $LIBELLEPROJET,
+             'TYPEPROJET'=> $TYPEPROJET,
+             'ID_LANGUE' =>1,
+             'ID_HELP' =>1,
+             'ID_USERS' => 4]);
+
+         $response = ['status' => 'success'];
+         }
+      return  \Response::json($response);
+ }
     }
-

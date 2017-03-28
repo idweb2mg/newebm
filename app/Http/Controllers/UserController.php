@@ -93,10 +93,10 @@ class UserController extends Controller
 
     public function show(User $user, $id)
     {
-      $user = $this->userRepository->getById($id);
+    //$user = $this->userRepository->getById($id);
+    $users=\DB::table('users')->where('id',$id)->get();
 
-
-        return view('back.users.show', compact('user'));
+        return view('back.users.show', compact('users','id'));
     }
 
 
@@ -108,8 +108,9 @@ class UserController extends Controller
      */
     public function edit(User $user,$id)
     {
-       $user = $this->userRepository->getById($id);
-        return view('back.users.edit', compact('user'));
+       //$user = $this->userRepository->getById($id);
+       $users=\DB::table('users')->where('id',$id)->get();
+        return view('back.users.edit', compact('users'));
     }
 
     /**
@@ -121,9 +122,13 @@ class UserController extends Controller
      */
      public function update(UserUpdateRequest $request, $id)
  {
-     $this->userRepository->update($id, $request->input('name'), $request->input('email'), $request->input('confirmed'));
+     //$this->userRepository->update($id, $request->input('name'), $request->input('email'), $request->input('confirmed'));
+     $users=\DB::table('users')->where('id',$id)->update([ 'name' => $request->input('name') ,
+       'email' =>  $request->input('email'),
+           'confirmed' => $request->input('confirmed')
 
- 	return view('user')-> withOk("L'utilisateur " . $request->input('name') . " a été modifié.");
+           ]);
+ 	return view('back.users.edit', compact('users'))-> withOk("L'utilisateur " . $request->input('name') . " a été modifié.");
  }
 
     /**
@@ -134,7 +139,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        $this->userRepository->destroy($id);
+        $users=\DB::table('users')->where('id',$id)->delete();
 
       return redirect()->back();
     }

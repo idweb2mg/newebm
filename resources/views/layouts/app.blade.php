@@ -11,7 +11,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>e-BM</title>
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 @yield('css')
     <!-- Styles -->
@@ -39,7 +39,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        e-BM
                     </a>
                 </div>
 
@@ -53,8 +53,8 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @if (\Auth::guest())
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
+                            <li><a href="{{ route('login') }}">Connexion</a></li>
+                            <li><a href="{{ route('register') }}">Inscription</a></li>
                         @else
                         @if (Auth::user()->ID_ROLES==1)
 
@@ -142,7 +142,12 @@
     <script src="{{ asset('js/app.js') }}"></script>
     @yield('script')
 
+    <footer>
+          @yield('footer')
 
+          <p class="text-center"><small> Mentions légales - CGU -Conditions Générales d'Utilisation -Contact-Copyright &copy; 2017 e-BM. Tous droits réservés</small></p>
+
+    </footer>
 
 </body>
 </html>

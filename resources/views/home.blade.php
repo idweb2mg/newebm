@@ -3,13 +3,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 
 use App\User;
-use App\Frprojet;
+use App\FRPROJET;
 
 $users= \DB::table('users')->count();
 $projets= \DB::table('frprojet')->count();
 
 
-$FRPROJETS = \DB::table('FRPROJET')->where('ID_USERS', '1')->get();
+$FRPROJETS = \DB::table('FRPROJET')->where('ID_USERS', '4')->get();
 $HelpProjet = \DB::table('frhelp')->where('ID_HELP', '1')->get();
 ?>
 
@@ -132,11 +132,11 @@ $HelpProjet = \DB::table('frhelp')->where('ID_HELP', '1')->get();
             <div class="panel panel-default">
                 <div class="panel-heading">TABLEAU DE BORD PROJET</div>
 
-                    <div class="panel-body">                  
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#projet">Créer un nouveau projet</button>
+                    <div class="panel-body">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newprojet">Créer un nouveau projet</button>
 
-                        
-                    <div class="modal fade" id="projet" tabindex="-1" role="dialog" >
+
+                    <div class="modal fade" id="newprojet" tabindex="-1" role="dialog" >
 
                       <div class="modal-dialog" role="document">
                         <div class="modal-content">
@@ -144,34 +144,36 @@ $HelpProjet = \DB::table('frhelp')->where('ID_HELP', '1')->get();
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                             <h4 class="modal-title" id="exampleModalLabel">Nouveau projet</h4>
                           </div>
-                          <div class="modal-body">
-                            <form method="post" id="edit_projet">
-                              <div class="form-group">
-                               <input type="hidden" name="_token" value="{{ Session::token() }}">
-                                <label for="LIBELLEPROJET" class="control-label">Nom du projet:</label>
-                                <input type="text" id="LIBELLEPROJET" name="LIBELLEPROJET" required placeholder="projet, raison sociale" class="form-control" />
-                              </div>
+                          <form id="new_projet">
+                            <div class="modal-body">
 
-                              <div class="form-group">
-                                <label for="categorie" class="control-label">Catégorie d'activité:</label>
+                                <div class="form-group">
+                                <input type="hidden" name="_token" value="{{ Session::token() }}">
 
-                                <select class="form-control" id="TYPEPROJET" name="TYPEPROJET" required>
-                                        <option value="null" selected disabled>Choisir...</option>
-                                        <option value="1">Business to Consumer</option>
-                                        <option value="2">Business to Business</option>
-                                        <option value="3">Business to Business to Consumer</option>
-                                        <option value="4">Business to Gov</option>
-                                    </select>
-                                <input type="hidden" name="ID_LANGUE" value="1">
-                                <input type="hidden" name="ID_HELP" value="1">
-                                <input type="hidden" name="ID_USERS" value="1">
-                              </div>
-                            
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                            <button type="submit" class="btn btn-primary" name="action" value="enregistrer">Enregistrer</button>
-                          </div>
+                                  <label for="LIBELLEPROJET" class="control-label">Nom du projet:</label>
+                                  <input type="text" id="LIBELLEPROJET" name="LIBELLEPROJET" required placeholder="projet, raison sociale" class="form-control" />
+                                </div>
+
+                                <div class="form-group">
+                                  <label for="categorie" class="control-label">Catégorie d'activité:</label>
+
+                                  <select class="form-control" id="TYPEPROJET" name="TYPEPROJET" required>
+                                          <option value="null" selected disabled>Choisir...</option>
+                                          <option value="1">Business to Consumer</option>
+                                          <option value="2">Business to Business</option>
+                                          <option value="3">Business to Business to Consumer</option>
+                                          <option value="4">Business to Gov</option>
+                                      </select>
+                                  <input type="hidden" name="ID_LANGUE" value="1">
+                                  <input type="hidden" name="ID_HELP" value="1">
+                                  <input type="hidden" name="ID_USERS" value="4">
+                                </div>
+
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                              <button type="submit" class="btn btn-primary" name="action" value="enregistrer">Enregistrer</button>
+                            </div>
                         </form>
                         </div>
                       </div>
@@ -187,22 +189,22 @@ $HelpProjet = \DB::table('frhelp')->where('ID_HELP', '1')->get();
                     <div class="panel panel-default">
                         <div class="panel-heading"><h3>Liste de projets</h3></div>
 
-                    
+
 
 @if(!$FRPROJETS->isEmpty())
-                        @foreach($FRPROJETS as $PROJET)
+
                     <table class="table table-striped">
                         <tr>
-                            
+
                             <th>LIBELLE PROJET</th>
                             <th>TYPE PROJET</th>
                             <th>DATE CREATION</th>
                             <th>DATE ENREGISTREMENT</th>
-                            <th>Action</th>
+                            <th colspan="2" style="text-align: center;">ACTIONS</th>
                         </tr>
-                        
+                        @foreach($FRPROJETS as $PROJET)
                         <tr>
-                            
+
                             <td>{{$PROJET->LIBELLEPROJET}}</td>
 
                             <td>
@@ -215,7 +217,10 @@ $HelpProjet = \DB::table('frhelp')->where('ID_HELP', '1')->get();
                             </td>
                             <td>{{$PROJET->DATECREATION}}</td>
                             <td>{{$PROJET->DATEENREGISTREMENT}}</td>
+
                             <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modifprojet">Modifier</button></td>
+                            <td><a href="/newebm_integration/public/MATRICE/1" target="_blank" class="btn btn-primary btn-sm active" role="button">Busness model</a></td>
+                            @endforeach
                         </tr>
                     </table>
 
@@ -229,7 +234,7 @@ $HelpProjet = \DB::table('frhelp')->where('ID_HELP', '1')->get();
                           </div>
                           <div class="modal-body">
 
-                            <form method="POST" id="edit_projet">
+                            <form id="edit_projet">
 
                               <div class="form-group">
                                <input type="hidden" name="_token" value="{{ Session::token() }}">
@@ -279,17 +284,17 @@ $HelpProjet = \DB::table('frhelp')->where('ID_HELP', '1')->get();
                           </div>
                             </form>
                           </div>
-                          
+
                         </div>
                       </div>
                     </div>
-                        
-                       
 
 
-                        @endforeach
 
-   
+
+
+
+
 
                     </div>
                 </div>
@@ -300,11 +305,11 @@ $HelpProjet = \DB::table('frhelp')->where('ID_HELP', '1')->get();
 @endif
 
 
-    
+
 @endsection
 
 
-@section('scripts')
+@section('script')
 
 <script>
 
@@ -312,15 +317,16 @@ $HelpProjet = \DB::table('frhelp')->where('ID_HELP', '1')->get();
 $('form#edit_projet').on('submit', function(event){
   event.preventDefault();
 
-
   $.post(
     '{{ route('edit_projet') }}',
     $(this).serialize(),
     function (response) {
       console.log(response);
+
       if (response.status == 'success') {
         // on ferme la popin & on replie la box partenaires
         $('#modifprojet').modal('hide');
+
 
         @foreach($FRPROJETS as $PROJET)
        $('<div id="refresh" ><p class="navbar-text">{{$PROJET->LIBELLEPROJET}}</p><br/><p class="navbar-text">{{$PROJET->TYPEPROJET}}</p></div>').insertAfter("#insertion1");
@@ -345,8 +351,49 @@ $('form#edit_projet').on('submit', function(event){
     }
   );
 //script pour rafraichir la page après l'enregistrement
-  //window.location.replace('/newebm/public/MATRICE/1');
+  window.location.replace('{{ route('home') }}');
 });
+
+
+
+$('form#new_projet').on('submit', function(event){
+  event.preventDefault();
+
+  $.post(
+    '{{ route('new_projet') }}',
+    $(this).serialize(),
+    function (response) {
+      console.log(response);return;
+      if (response.status == 'success') {
+        // on ferme la popin & on replie la box partenaires
+        $('#newprojet').modal('hide');
+
+      /*  @foreach($FRPROJETS as $PROJET)
+       $('<div id="refresh" ><p class="navbar-text">{{$PROJET->LIBELLEPROJET}}</p><br/><p class="navbar-text">{{$PROJET->TYPEPROJET}}</p></div>').insertAfter("#insertion1");
+       @endforeach */
+        //$("#refresh").load('/newebm/public/MATRICE/1');
+      /* function refresh() {
+       $.ajax({
+           url: '/newebm/public/MATRICE/1', // Ton fichier ou se trouve ton chat
+           success:
+               function(retour){
+               $('#refresh').html(retour); // rafraichi toute ta DIV "bien sur il lui faut un id "
+           }
+       });
+
+     }*/
+
+//setInterval("refresh()", 1000)
+      } else {
+        // on affiche les messages d'erreur dans la popin
+        $('<div class="alert alert-warning"><strong>Warning!</strong> Tous les champs doivent êtres remplis </div>').appendTo("#new_projet");
+      }
+    }
+  );
+//script pour rafraichir la page après l'enregistrement
+  //window.location.replace('/newebm_integration/public/home');
+});
+
 
   $(function () {
   $('[data-toggle="popover"]').popover()});

@@ -18,7 +18,7 @@ $users =\DB::table('Users')->get();
 @section('content')
 <div class="table-responsive">
   <div class="col-sm-offset-4 col-sm-4">
-  <div class="panel panel-primary">
+  <div class="panel panel-primary ">
 			<div class="panel-heading">
 				<h3 class="panel-title">Liste des utilisateurs</h3>
 			</div>
@@ -44,12 +44,16 @@ $users =\DB::table('Users')->get();
 									{!! Form::submit('Supprimer', ['class' => 'btn btn-danger btn-block', 'onclick' => 'return confirm(\'Vraiment supprimer cet utilisateur ?\')']) !!}
 								{!! Form::close() !!}
 							</td>
+
 						</tr>
 					@endforeach
 
         </tbody>
 
     </table>
+    <a href="javascript:history.back()" class="btn btn-primary">
+      <span class="glyphicon glyphicon-circle-arrow-left"></span> Retour
+    </a>
   </div>
 </div>
 </div>

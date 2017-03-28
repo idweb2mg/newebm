@@ -34,10 +34,10 @@ ebm ~ layout.blade.php
 
         <!-- Lien css et font police de caracteres specifique dans public	-->
 	        <link rel="stylesheet" href="{{ asset('css/back.css') }}" />
-	        <link rel="stylesheet" href="{{ asset('css/front.css') }}" />	
+	        <link rel="stylesheet" href="{{ asset('css/front.css') }}" />
 			<link rel="stylesheet" href="{{ asset('css/app.css') }}" />
 			<link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}" >
-		
+
 
 		<!-- Gérer mon style -->
 		<link rel="stylesheet" href="{{ asset('mycss/ebm.css') }}" >
@@ -93,7 +93,7 @@ ebm ~ layout.blade.php
 
     <footer>
           @yield('footer')
-          <a href="#" title="alt">Informations</a> -
+
           <a href="#" title="alt">Mentions légales</a> -
           <a href="#" title="alt">CGU  Conditions Générales d'Utilisation</a> -
           <a href="#" title="alt">Contact</a>

@@ -162,9 +162,9 @@ class UserRepository extends BaseRepository
      */
     public function destroy($id)
     {
-        $user->comments()->delete();
+        //$user->comments()->delete();
         $this->getById($id)->delete();
-        $user->posts()->delete();
+        //$user->posts()->delete();
 
 
     }

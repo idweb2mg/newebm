@@ -15,6 +15,7 @@ use App\FRRESSOURCESCLES;
 use App\FRSEGMENTSCLIENTS;
 use App\FRSOURCESDEREVENUS;
 use App\FRSTRUCTUREDECOUTS;
+use App\frhelp;
 
 
 //$TYPEPARTENARIAT= Input::get('TYPEPARTENARIAT');
@@ -52,9 +53,12 @@ $HelpSources			= \DB::table('frhelp')->where('ID_HELP', 11)->get();
 ?>
 
 
-@extends('layout')
+@extends('layouts.app')
+@section('css')
+<link rel="stylesheet" href="{{ asset('mycss/matrice.css') }}" >
 
-@section('main')
+@endsection
+@section('content')
 
 <div class="row ">
 
@@ -66,17 +70,7 @@ $HelpSources			= \DB::table('frhelp')->where('ID_HELP', 11)->get();
   <button type="button" class="btn btn-primary btn-lg col-md-12 button"  data-toggle="modal" data-target="#partenaires" >
       MODIFIER
     </button>
-@if(!$FRPARTENAIRES->isEmpty())
-    @foreach($FRPARTENAIRES as $PARTENAIRE)
-    <strong>TITREPARTENARIAT</strong>: {{$PARTENAIRE->TITREPARTENARIAT}}
-    <strong>TYPEPARTENARIAT</strong>:
-    @if($PARTENAIRE->TYPEPARTENARIAT==1) Optimisation et économies d'échelle
-    @elseif($PARTENAIRE->TYPEPARTENARIAT==2) Réduction du risque et de l'incertitude
-    @elseif($PARTENAIRE->TYPEPARTENARIAT==3) Acquisition certaines ressources et activités
-    @endif
-    <strong>CONTENUPARTENARIAT</strong>: {{$PARTENAIRE->CONTENUPARTENARIAT}}
-
-    @endforeach
+  @if(!$FRPARTENAIRES->isEmpty())
 
 
     <div class="modal fade" id="partenaires" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -141,8 +135,7 @@ $HelpSources			= \DB::table('frhelp')->where('ID_HELP', 11)->get();
               @endforeach
               <input type="hidden" name="ID_HELP" value="1">
                 @foreach($FRPARTENAIRES as $PARTENAIRE)
-              <input type="
-              " name="ID_PARTENARIAT" value="{{$PARTENAIRE->ID_PARTENARIAT}}">
+              <input type="hidden" name="ID_PARTENARIAT" value="{{$PARTENAIRE->ID_PARTENARIAT}}">
                   @endforeach
 
       @else
@@ -207,6 +200,10 @@ $HelpSources			= \DB::table('frhelp')->where('ID_HELP', 11)->get();
       </div>
     </div>
   </div>
+
+
+
+
   <div class="col-md-2">
     <div class="row">
       <div class="col-md-12 bordergreen">
@@ -799,7 +796,7 @@ $HelpSources			= \DB::table('frhelp')->where('ID_HELP', 11)->get();
 
 @endsection
 
-@section('scripts')
+@section('script')
 
 
 <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -1163,8 +1160,11 @@ $('form#edit_sources').on('submit', function(event){
       }
     }
   );
-})
+});
 
+$(function () {
+  $('[data-toggle="popover"]').popover();
+});
 
 
 </script>

@@ -8,6 +8,13 @@ use App\Http\Controllers\ProjetController;
 
 ?>
 @extends('layouts.app')
+@section('css')
+<link href="{{asset('css/sb-admin.css')}}" rel="stylesheet">
+
+<!-- Morris Charts CSS -->
+<link href="{{asset('css/plugins/morris.css')}}" rel="stylesheet">
+<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+@endsection
 @section('content')
 
 

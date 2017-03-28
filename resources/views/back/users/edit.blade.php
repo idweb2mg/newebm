@@ -11,7 +11,13 @@ use App\Http\Controllers\UserController;
 
  ?>
 @extends('layouts.app')
+@section('css')
+<link href="{{asset('css/sb-admin.css')}}" rel="stylesheet">
 
+<!-- Morris Charts CSS -->
+<link href="{{asset('css/plugins/morris.css')}}" rel="stylesheet">
+<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+@endsection
 @section('content')
 
 
@@ -23,6 +29,7 @@ use App\Http\Controllers\UserController;
 			<div class="panel-heading">Modification d'un utilisateur</div>
 			<div class="panel-body">
 				<div class="col-sm-12">
+          @foreach($users as $user)
 					{!! Form::model($user, ['route' => ['user.update', $user->id], 'method' => 'put', 'class' => 'form-horizontal panel']) !!}
 
 					<div class="form-group {!! $errors->has('name') ? 'has-error' : '' !!}">
@@ -36,12 +43,14 @@ use App\Http\Controllers\UserController;
 					<div class="form-group">
 						<div class="checkbox">
 							<label>
-								{!! Form::checkbox('confirmed', '1', null) !!}Administrateur
-							</label>
+								{!! Form::checkbox('confirmed', '1', null) !!}Administrateur<br/>
+                {!! Form::checkbox('confirmed', '2', null) !!}moderateur
+              </label>
 						</div>
 					</div>
 						{!! Form::submit('Envoyer', ['class' => 'btn btn-primary pull-right']) !!}
 					{!! Form::close() !!}
+          @endforeach
           <a href="javascript:history.back()" class="btn btn-primary">
             <span class="glyphicon glyphicon-circle-arrow-left"></span> Retour
           </a>

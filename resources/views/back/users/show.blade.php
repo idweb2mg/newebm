@@ -10,7 +10,13 @@ print_r($id);*/
 
  ?>
 @extends('layouts.app')
+@section('css')
+<link href="{{asset('css/sb-admin.css')}}" rel="stylesheet">
 
+<!-- Morris Charts CSS -->
+<link href="{{asset('css/plugins/morris.css')}}" rel="stylesheet">
+<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+@endsection
 @section('content')
 
 <div class="col-sm-offset-4 col-sm-4">
@@ -18,13 +24,12 @@ print_r($id);*/
 <div class="panel panel-primary">
   <div class="panel-heading">Fiche d'utilisateur</div>
   <div class="panel-body">
-
+@foreach($users as $user)
     <p>Nom : {{ $user->name }}</p>
     <p>Email : {{ $user->email }}</p>
-    @if($user->admin == 1)
-      Administrateur
-    @endif
-    
+
+
+    @endforeach
   </div>
 </div>
 <a href="javascript:history.back()" class="btn btn-primary">

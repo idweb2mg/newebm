@@ -79,7 +79,7 @@
 
             <div class="content">
 
-              <img src="{{asset('img/FRMATRICE.jpg')}}" width="" height="" title="Business Model" alt="Modèle économique" />
+              <img src="{{asset('img/FRMATRICE.jpg')}}" width="850px" height="850px" title="Business Model" alt="Modèle économique" />
 
                 <div class="title m-b-md">
                     e-BM
@@ -88,13 +88,18 @@
 
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    <a href="">Home</a>
+                    <a href="">Matrice</a>
+
                 </div>
             </div>
         </div>
+        <footer>
+              @yield('footer')
+
+
+              <p class="text-center"><small> Mentions légales - CGU -Conditions Générales d'Utilisation -Contact-Copyright &copy; 2017 e-BM. Tous droits réservés</small></p>
+
+        </footer>
     </body>
 </html>
